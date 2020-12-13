@@ -1120,8 +1120,9 @@ $ cat options_example2.sh
 | awk '/^foo/ {sum+=$2; count+=1} END {print sum/count}' bar.bed | print the average of the second value of lines starting with foo |
 ---
 
-**5. piping, redirection and more advanced queries**
+**5. Piping, redirection and more advanced queries**
 ```bash
+
 grep -hv '^#' bar/*.gff | awk -F"\t" '{print $1}' | sort -u
 # grep => -h: don't print file names
 # -v: don't give me matching files
@@ -1130,11 +1131,13 @@ grep -hv '^#' bar/*.gff | awk -F"\t" '{print $1}' | sort -u
 # awk => print the first column
 # sort => -u: give me unique values
 
+
 awk 'NR%10 == 0' bar.bed | head -20
 # awk => NR: is the row number
 # NR%10: is the modulo (remander) of dividing by 10
 # awk is therefore giving you every 10th line
 # head => only show the first 20
+
 
 awk '{l=($3-$2+1)}; (l<300 && $2>200000 && $3<250000)' exercises.bed
 # Gives:
@@ -1146,6 +1149,8 @@ awk '{l=($3-$2+1)}; (l<300 && $2>200000 && $3<250000)' exercises.bed
 # because we need to calculate the length of each feature before we use it
 # for filtering. If they were the other way around, you'd get the line
 # immediatly after the one you want:
+
+
 awk '(l<300 && $2>200000 && $3<250000) {l=($3-$2+1); print $0}' exercises.bed
 # Gives:
 # contig-2 201156 201359 gene-67 24.7 -
@@ -1202,19 +1207,22 @@ fi
 ```
 ---
 
+
+
 **7. Pro tips**   
 - Always have a quick look at files with less or head to double check their format.
 - Watch out for data in headers and make sure you don't accidentally include it in your output.
-- Watch out for spaces, especially if you're using awk; if in doubt, use -F"\t".
+- Watch out for spaces, especially if you're using awk - if in doubt, use -F"\t".
 - Build regular expressions slowly, bit by bit.
 - If you did something smart but can't remember what it was, try typing history.
-- man the_name_of_a_command often gives you help.
+- **man the_name_of_a_command** often gives you help.
 - **Google is an excellent resource.** Particularly prioritise results from stackoverflow.com, seqanswers.com and biostars.org.
 ---
 
 
 **8. Build your commands slowly**   
-If you wanted me to calculate the sum of all of the scores for genes on contig-1 in a bed file, it’s best to run each of the following commands before moving onto the next:
+- If you wanted me to calculate the sum of all of the scores for genes on contig-1 in a bed file, it’s best to run each of the following commands before moving onto the next:
+
 ```bash
 # check which column is which and if there are any headers
 head -20 bar.bed
@@ -1242,6 +1250,7 @@ awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
 
 ```
 ---
+
 
 **9. Which tool should I use?**
 - You should probably use **awk** if:
