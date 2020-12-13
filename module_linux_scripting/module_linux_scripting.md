@@ -126,7 +126,11 @@ cd /home/manager/Module2_Linux_Scripting
 - Additional options and/or arguments can be added to the commands to affect the way the command works.
 - Options usually have one dash and a letter (e.g. -h) or two dashes and a word (--help) with no space between the dash and the letter/word.
 - Arguments are usually filenames or directories.
-- For example, the list (ls) command
+- For example, to get a list of files in the terminal you can use the ls command with no other options. This tells the computer you want a list of all the files in the current directory.  The same information is also displayed in the file browser but with nice looking pictures.
+
+![](figures/03_list_files.png)
+
+- Lets try out some different examples of the "ls" command:
 ```bash
 # List the contents of a directory
 $ ls
@@ -150,6 +154,19 @@ $ ls –ltr
 
 # this will therefore provide a detailed list, with the most recent files at the bottom. This is really useful if you have a lot of files in the same directory
 ```
-- To get a list of files in the terminal you can use the ls command with no other options. This tells the computer you want a list of all the files in the current directory.  The same information is also displayed in the file browser but with nice looking pictures.
 
-![](figures/03_list_files.png)
+- By using the –l option we can change the behaviour of the ls command. Instead of printing out a simple list, it will print out additional information about each file. There is a space between the command ls and the –l option. There is no space between the dash and the letter l.
+
+![](figures/04_ls_long.png)
+
+### Permissions
+- Every file has permissions which restrict what can be done with a file or directory.
+
+| Read (r) |	permission to read from a file/directory |
+| Write (w) | 	permission to modify a file/directory |
+| Execute (x) | 	Tells the operating system that the file contains code for the computer to 	
+run, as opposed to a file of text which you open in a text editor. |
+
+- The first set of permissions (characters 2,3,4) refer to what the owner of the file can do,
+- the second set of permissions (5,6,7) refers to what members of the Linux group can do
+- the third set of permissions (8,9,10) refers to what everyone else can do.
