@@ -59,13 +59,13 @@ and provide examples of how they can be used in bioinformatics analyses.
      - http://Linuxhelp.com
      - https://learn.datacamp.com/
 
+
+
 ### Following the course in a terminal
 - In this course you will use a terminal window to type in your Unix commands.
 - This is similar to the "Command Prompt" window on MS Windows systems, which allows the user to type DOS commands to manage files.
 
 
-### Cheat sheet
-- We've also included a cheat sheet. It probably won't make a lot of sense now, but it might be a useful reminder of this module later in the course.
 
 
 ---
@@ -98,10 +98,11 @@ and provide examples of how they can be used in bioinformatics analyses.
           - ">" :  this is a R prompt
                - note that you also see this on the shell prompt if you have not completed a command correctly
           - ">>>" : this is the python prompt
-
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
 ## Getting started on the command line - Basic unix <a name="getting_started"></a>
 
 ### Introduction to the terminal
