@@ -63,6 +63,7 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 ### Some useful Linux commands
 |    Command   |    What it does   |
+|    ---  |    ---  |
 |    ls   |    Lists the contents of the current directory  |
 |    mkdir     |    Makes a new directory    |
 |    mv   |    moves or renames a file  |
