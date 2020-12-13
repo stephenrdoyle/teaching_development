@@ -79,6 +79,17 @@ and provide examples of how they can be used in bioinformatics analyses.
 | grep | search for a pattern within a file    |
 | wc | count the lines, words, characters or bytes in a file |
 | kill | stop a process |
-| jobs | | list the processes that are running |
+| jobs | list the processes that are running |
 
+### Tips to get you started
+- read the text! They contain lots of hints that should help you to answer some of the questions
+- grey boxes contain instructions for running commands
+
+
+
+### Lets get started
+```bash
+# your first command – move to the working directory to get started!
+
+cd /home/manager/Module2_Linux_Scripting
 ```
