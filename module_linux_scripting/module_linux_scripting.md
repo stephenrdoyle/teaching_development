@@ -171,3 +171,34 @@ $ ls –ltr
 - The first set of permissions (characters 2,3,4) refer to what the owner of the file can do,
 - the second set of permissions (5,6,7) refers to what members of the Linux group can do
 - the third set of permissions (8,9,10) refers to what everyone else can do.
+
+
+
+### Files and Directories
+- Directories are the Linux equivalent of folders on a PC or Mac.
+- They are organised in a hierarchy, so directories can have sub-directories and so on.
+- Directories are very useful for organising your work and keeping your account tidy - for example, if you have more than one project, you can organise the files for each project into different directories to keep them separate. You can think of directories as rooms in a house. You can only be in one room (directory) at a time. When you are in a room you can see everything in that room easily. To see things in other rooms, you have to go to the appropriate door and crane your head around. Linux works in a similar manner, moving from directory to directory to access files.
+- The location or directory that you are in is referred to as the current working directory.
+
+![](figures/05_directories.png)
+
+- Therefore, if there is a file called genome.seq in the dna directory its location or full pathname can be expressed as /nfs/dna/genome.seq.
+
+### pwd - find where you are
+- The command pwd stands for print working directory.
+- A command (also known as a program) is something which tells the computer to do something. Commands are therefore often the first thing that you type into the terminal (although we'll show you some advanced exceptions to this rule later).
+- As described above, directories are arranged in a hierarchical structure. To determine where you are in the hierarchy you can use the pwd command to display the name of the current working directory. The current working directory may be thought of as the directory you are in, i.e. your current position in the file-system tree.
+
+```bash
+# To find out where you are, type this into your terminal.
+$ pwd
+
+$ cd basic
+
+$ pwd
+
+```
+- Remember that Unix is case sensitive, *PWD* is not the same as *pwd*.
+- pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
+     - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
+     - More on that shortly ...
