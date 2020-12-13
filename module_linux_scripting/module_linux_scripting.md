@@ -166,8 +166,7 @@ $ ls –ltr
 | --- | --- |
 | Read (r) |	permission to read from a file/directory |
 | Write (w) | 	permission to modify a file/directory |
-| Execute (x) | 	Tells the operating system that the file contains code for the computer to 	
-run, as opposed to a file of text which you open in a text editor. |
+| Execute (x) | 	Tells the operating system that the file contains code for the computer to run, as opposed to a file of text which you open in a text editor. |
 
 - The first set of permissions (characters 2,3,4) refer to what the owner of the file can do,
 - the second set of permissions (5,6,7) refers to what members of the Linux group can do
