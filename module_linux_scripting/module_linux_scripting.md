@@ -187,9 +187,10 @@ $ ls –ltr
 | Write (w) | 	permission to modify a file/directory |
 | Execute (x) | 	Tells the operating system that the file contains code for the computer to run, as opposed to a file of text which you open in a text editor. |
 
-- The first set of permissions (characters 2,3,4) refer to what the owner of the file can do,
+- The first set of permissions (characters 2,3,4) refer to what the owner of the file can do
 - the second set of permissions (5,6,7) refers to what members of the Linux group can do
 - the third set of permissions (8,9,10) refers to what everyone else can do.
+
 ---
 [↥ **Back to top**](#top)
 
