@@ -1202,7 +1202,7 @@ fi
 ```
 ---
 
-** 7. Pro tips**
+**7. Pro tips**   
 - Always have a quick look at files with less or head to double check their format.
 - Watch out for data in headers and make sure you don't accidentally include it in your output.
 - Watch out for spaces, especially if you're using awk; if in doubt, use -F"\t".
@@ -1213,7 +1213,7 @@ fi
 ---
 
 
-**8.       build your commands slowly**
+**8. Build your commands slowly**   
 If you wanted me to calculate the sum of all of the scores for genes on contig-1 in a bed file, it’s best to run each of the following commands before moving onto the next:
 ```bash
 # check which column is which and if there are any headers
