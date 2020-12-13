@@ -246,3 +246,87 @@ $ ls -lrt
 | / | Root of the file system (like C: in Windows) |
 
 - Try the following commands, what do they do?
+
+```bash
+# List contents of current directory
+$ ls .
+
+# List the contents of directory above your current location
+$ ls ..
+
+# list the contents of the home directory
+$ ls ~
+
+```
+
+
+---
+### cp - copy a file
+- The command cp stands for copy.
+- The cp command will copy a file from one location to another and you will end up with two copies of the file.
+
+```bash
+# To copy the file genome_1.gff to a new file called genome_1.withseq use:
+$ cp genome_1.gff genome_1.withseq.gff
+
+# Use ls to check the contents of the current directory for the copied file:
+$ ls -lrt
+```
+
+
+
+---
+### mv - move a file
+- The mv command stand for move.
+- The mv command will move a file from one location to another. This moves the file rather than copies it, therefore you end up with only one file rather than two.
+- When using the command, the path or pathname is used to tell Unix where to find the file.
+- You refer to files in other directories by using the list of hierarchical names separated by slashes.
+     - For example, the file called bases in the directory genome has the path genome/bases.
+     - If no path is specified, Unix assumes that the file is in the current working directory.
+
+```bash
+# To move the file genome_1.withseq.gff from the current directory to the directory above use:
+$ mv genome_1.withseq.gff ..
+
+# Use the ls command to check the contents of the current directory and the directory above to see
+that genome_1.withseq.gff has been moved.
+$ ls –lrt
+$ ls –lrt ../
+
+# you could also change directory to check the file moved
+$ cd ../
+$ ls -lrt
+```
+
+---
+### rm - delete a file
+- The command rm stands for remove.
+- The rm command will delete a file permanently from your computer so take care!
+
+```bash
+# To remove the copy of the genome_1 gff file, called genome_1.withseq.gff use:
+$ rm genome_1.withseq.gff
+
+# Use ls to check the contents of the current directory for the copied file:
+$ ls -lrt
+
+```
+- Linux as a general rule does exactly what you ask, and does not ask for confirmation.
+- Unfortunately there is no "recycle bin" on the command line to recover the file from, so you have to be careful.
+
+
+
+---
+### Exercises
+- Many people panic when they are confronted with a Unix prompt! Don't! All the commands you need to solve these exercises are provided above and don't be afraid to make a mistake.
+- If you get lost ask a demonstrator. If you are a person skilled at Unix, be patient this is only a short exercise.
+- To begin, open a terminal window and navigate to the basic directory in the Unix_course directory (remember use the Unix command cd) and then complete the exercise below.
+
+1. Use the ls command to show the contents of the basic directory.
+2. How many files are there in the genome_2 directory?
+3. What is the largest file in the genome_2 directory?
+4. Move into the genome_2 directory.
+5. How many files are there in the fasta directory?
+6. Copy the file genome_2.bed in the genome_2 directory into the annotation subdirectory.
+7. Move all the fasta files in the directory genome_2 to the fasta subdirectory.
+8. How many files are there in the fasta directory?
