@@ -205,6 +205,7 @@ $ ls –ltr
 ![](figures/05_directories.png)
 
 - Therefore, if there is a file called genome.seq in the dna directory its location or full pathname can be expressed as /nfs/dna/genome.seq.
+
 ---
 
 
@@ -227,6 +228,7 @@ $ pwd
 - pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
      - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
      - More on that shortly ...
+
 ---
 
 
@@ -281,6 +283,7 @@ $ ls ~
      - As you have two folders with similar names, you will need to give your terminal a bit of a hand to work out which one you want.
 - Pressing the tab key twice will try and autocomplete what you’ve started typing or give you a list of all possible completions.
      - This saves a lot of typing and typos.
+
 ---
 
 
@@ -296,6 +299,7 @@ $ cp genome_1.gff genome_1.withseq.gff
 # Use ls to check the contents of the current directory for the copied file:
 $ ls -lrt
 ```
+
 ---
 
 
@@ -339,6 +343,7 @@ $ ls -lrt
 ```
 - Linux as a general rule does exactly what you ask, and does not ask for confirmation.
 - Unfortunately there is no "recycle bin" on the command line to recover the file from, so you have to be careful.
+
 ---
 
 
@@ -356,6 +361,7 @@ $ ls -lrt
 6. Copy the file genome_2.bed in the genome_2 directory into the annotation subdirectory.
 7. Move all the fasta files in the directory genome_2 to the fasta subdirectory.
 8. How many files are there in the fasta directory?
+
 ---
 [↥ **Back to top**](#top)
 
@@ -383,6 +389,7 @@ $ less genome_1.gff
 - Another useful feature is the slash key, /, to search for an expression in the file.
      - Try it, search for the gene with locus tag t0038.
      - What is the start and end position of this gene?
+
 ---
 
 ### head and tail
@@ -412,6 +419,7 @@ $ tail –n 25 genome_1.gff
      - the -n says that you want to specify the number of lines to show and the 25 bit tells it how many.
 - Unlike earlier when we merged arguments like ls -lha together, it's not a good idea to merge multiple two part arguments together because otherwise it is ambiguous which value goes with which argument.
      - -n is such a common argument for tail and head that it even has a shorthand: -n 25 and -25 mean the same thing.
+
 ---
 
 
@@ -424,6 +432,7 @@ $ tail –n 25 genome_1.gff
      - Try it by typing fin and pressing tab...
           - fin
 - Although tab completion works on commands and file names, unfortunately it rarely works on options or other arguments.
+
 ---
 
 
@@ -443,6 +452,7 @@ $ tail --help
 - IMPORTANTLY, each will give an example command, or usage statement.
 
 - There are several other useful commands that can be used to manipulate and summarise information inside files and we will introduce some of these next, cat, sort, wc and uniq.
+
 ---
 
 
@@ -458,6 +468,7 @@ $ head -1 genome_1.gff > first_genome_1_line.txt
 - It's likely that nothing obvious will have happened….
 - This is because the > character has redirected the output of the head command. Instead of writing to the standard output (your terminal) it sent the output into the file first_genome_1_line.txt.
 - Note that tab completion works for genome_1.gff because it exists but doesn't work for first_genome_1_line.txt because it doesn't exist yet.
+
 ---
 
 
@@ -483,7 +494,9 @@ $ cat genome_1.noseq.gff genome_1.fa > genome_1.concatenated.gff
 
 # lets check that the new file has been generated
 $ ls -lrt
+
 ```
+
 ---
 
 
@@ -514,6 +527,7 @@ $ ls | wc –l
 $ ls | grep ".gff" | wc -l
 
 ```
+
 ---
 
 
@@ -536,6 +550,7 @@ $ sort -k 2 -n genome_2.bed
 - The sort command can sort by multiple columns e.g. 1st column and then 2nd column by specifying successive -k parameters in the command.
 - Why not have a look at the manual for sort to see what these options do?
      - Remember that you can type / followed by a search phrase, n to find the next search hit, N to find the previous search hit and q to exit.
+
 ---
 
 
@@ -572,6 +587,7 @@ $ awk '{ print $1 }' genome_2.bed | sort | uniq | less
 3. Use the sort command to sort the file genome_2.bed on chromosome and then gene position.
 4. Use the uniq command to count the number of features per chromosome in the genome_2.bed file.
      - Hint: use the man command to look at the options for the uniq command. Or peruse the wc or grep manuals. There's more than one way to do it!
+
 ---
 [↥ **Back to top**](#top)
 
@@ -644,6 +660,7 @@ $ grep chr1 gene_expression_sneaky.bed | grep “-”
 - You will notice that grep reports several lines form genes which aren’t on chromosome 1.  
      - This is because each of them contains the text “chr1” and the text “-” somewhere.
 - We need a way to refine our searches further.
+
 ---
 
 
@@ -676,6 +693,7 @@ $ grep $‘^chr1\t’ gene_expression_sneaky.bed | grep ‘\-$’
 ```
 - We now have only one gene reported and it is on chromosome 1 and on the negative strand.
 - Further, more complex examples of regular expressions and their use may be found in the reference guide at the end of this chapter.
+
 ---
 
 
@@ -712,6 +730,7 @@ $ grep -i ACGT sequences.fasta
 $ grep -v $‘^chr1\t’ gene_expression_sneaky.bed
 
 ```
+
 ---
 
 
@@ -731,6 +750,7 @@ $ sed ‘s/^chr/chromosome/’ gene_expression.bed
 $ sed ‘s/^chr/chromosome/’ gene_expression.bed > gene_expression_new.bed
 
 ```
+
 ---
 [↥ **Back to top**](#top)
 
@@ -780,6 +800,7 @@ $ awk -F”\t” ‘{print $1}’ genes.gff
      - The option -F”\t” is needed to tell awk that the columns are tab separated.
      - For each line of the file, awk simply does what is inside the curly brackets, in this case, simply print the first column.
 - Try to modify the command to list each chromosome once only. (Hint: you’ll need to pipe your output into a Unix command we saw earlier.)
+
 ---
 
 
@@ -805,27 +826,28 @@ $ awk -F"\t" '$1=="chr1" { print $0 }' genes.gff
 
 ```bash
 # In this example we will search for just the genes from chromosome 1.
-$ awk -F”\t” ‘$1==”chr1” && $3==”gene”’ genes.gff
+$ awk -F"\t" '$1=="chr1" && $3=="gene"' genes.gff
 
 ```
-- Similarly, “||” is used in awk to mean “or”.
+- Similarly, "\|\|" is used in awk to mean "or".
 
 ```bash
 # In this example we will search for features which are on chromosome 1 or are repeats
-$ awk -F”\t” ‘$1==”chr1” || $3==”repeat”’ genes.gff
+$ awk -F"\t" '$1=="chr1" || $3=="repeat"' genes.gff
 
 ```
 - So far, we have only filtered using strings. Numbers can also be used.
 
 ```bash
 # In this example we will search for genes on chromosome 1 which start before base position 1100
-$ awk -F”\t” ‘$1==”chr1” && $3==”gene” && $4 < 1100’ genes.gff
+$ awk -F"\t" '$1=="chr1" && $3=="gene" && $4 < 1100' genes.gff
+
 ```
 - If we do not specify a column, awk will match the entire line as it assumes it is searching $0.
 
 ```bash
-# Note that -F”\t” can be omitted here. As we’re searching the whole line, the column delimiter is not relevant.
-$ awk ‘/repeat/’ genes.gff
+# Note that -F"\t" can be omitted here. As we're searching the whole line, the column delimiter is not relevant.
+$ awk '/repeat/' genes.gff
 
 ```
 - Similarly to grep, via its -v option, awk can invert its match. In this case, we use the !~ operator to represent “does not match”.
@@ -833,8 +855,8 @@ $ awk ‘/repeat/’ genes.gff
 ```bash
 # Here we simply look for the inverse of the previous search.
 $ awk ‘!/repeat/’ genes.gff
-
 ```
+
 ---
 
 
@@ -862,6 +884,7 @@ $ awk -F"\t" '$5 < $4' genes.gff
 $ awk -F"\t" 'NF<8 || NF>9' genes.gff
 
 ```
+
 ---
 
 
@@ -883,6 +906,7 @@ $ awk -F"\t" '{$2="new_source"; print $0}' genes.gff
 $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 
 ```
+
 ---
 
 
@@ -890,7 +914,8 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 1. Looking at the file grep/exercises.fasta, write a grep command to only output the sequence names.
      - How many sequences does this file contain?
      - How many sequences contain unknown bases (denoted by "n" or "N")?
-     - Do any sequences have the same name? You don’t need to find the repeated names, just how many names are repeated. Hint: You may need to look back at some earlier Unix commands.
+     - Do any sequences have the same name? You don’t need to find the repeated names, just how many names are repeated.
+          - Hint: You may need to look back at some earlier Unix commands.
 2. Looking at the files awk/exercises.bed, find the names of the contigs in the file.
      - How many contigs are there?
      - How many features are on the positive strand?
@@ -898,6 +923,7 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
      - How many genes are there?
      - How many genes have no strand assigned to them? (i.e. no final column)
      - How many genes have repeated names? You don’t need to find the names.
+
 ---
 [↥ **Back to top**](#top)
 
