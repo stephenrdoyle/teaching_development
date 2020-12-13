@@ -1016,3 +1016,22 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 | mv baz/foo .. | Move the foo directory into the parent directory |
 | rm -r ../foo | remove the directory called foo/ from the parent directory |
 | find foo/ -name "*.gff" | find all the files with a gff extension in the directory foo/ |
+
+2. Looking in files
+
+| command | what is it doing |
+| --- | --- |
+| less bar.bed | scroll through bar.bed |
+| grep chrom bar.bed \| less -S | Only look at lines in bar.bed which have 'chrom' and don't wrap lines (-S) |
+| head -20 bar.bed | show me the first 20 lines of bar.bed |
+| tail -20 bar.bed | show me the last 20 lines |
+| cat bar.bed | show me all of the lines (bad for big files) |
+| wc -l bar.bed | how many lines are there |
+| sort -k 2 -n bar.bed | sort by the second column in numerical order |
+| awk '{print $1}' bar.bed | sort | uniq | show the unique entries in the first column |
+
+
+3.        grep
+grep foo bar.bed # show me the lines in bar.bed with 'foo' in them
+grep foo baz/* # show me all examples of foo in the files immediately within baz/
+grep -r foo baz/ # show me all examples of foo in baz/ and every subdirectory within it
