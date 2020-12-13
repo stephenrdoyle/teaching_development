@@ -93,9 +93,60 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 
 
-### Lets get started
+### Lets get started with the command line
+- In this workshop, we will be using Ubuntu, a version of Linux which was specially designed for PCs.
+
+- We will use a terminal window to type in our Linux command line.
+     - This is similar to the "Command Prompt" window on MS Windows systems, which allows the user to type DOS commands to manage files.
+
+![](figures/01_open_terminal.png)
+
+- You should see a window labelled "Terminal" which will be empty except for a ’$' character at the top left.      
+     - The '$' character is the Linux prompt, similar to "C:\" in DOS. Note: the prompt will often be different on different Linux computers, for example it may be displayed as a ‘%’ character.
+
+- All Linux programs may be run by typing commands at the Linux prompt $. The command line tells the computer what to do.
+     - You can type commands directly into the terminal at the ‘$' prompt.
+
+![](figures/02_linux_prompt.png)
+
 ```bash
 # your first command – move to the working directory to get started!
 
 cd /home/manager/Module2_Linux_Scripting
+```
+
+- A list of useful commands can be found on a previous page.
+     - Many of them are two- or three-letter abbreviations. The earliest Linux systems (circa 1970) only had slow Teletype terminals, so it was faster to type 'rm' to remove a file than 'delete' or 'erase'. This terseness is a feature of Linux which still survives.
+
+
+### Command line arguements
+- You may subtly alter these commands by specifying certain options when typing in the command line.
+- Typing any Linux command for example ls, mv or cd at the Linux prompt with the appropriate variables such as files names or directories will result in the tasks being performed on pressing the enter key.
+- The ‘command’ is separated from the options and arguments by a space.  
+- Additional options and/or arguments can be added to the commands to affect the way the command works.
+- Options usually have one dash and a letter (e.g. -h) or two dashes and a word (--help) with no space between the dash and the letter/word.
+- Arguments are usually filenames or directories.
+- For example, the list (ls) command
+```bash
+# List the contents of a directory
+$ ls
+
+# List the contents of a directory with extra information about the files
+$ ls –l
+
+# List all contents including hidden files & directories
+$ ls –al 	
+
+# List the contents of the directory called basic with extra information
+$ ls –l basic
+
+# Suggested usage – this will be the most frequent command used as a bioinformatician!
+$ ls –ltr
+
+# where:
+	–l gives the long format,
+	-t sort the output by time,
+	–r reverse sorts the output.
+
+# this will therefore provide a detailed list, with the most recent files at the bottom. This is really useful if you have a lot of files in the same directory
 ```
