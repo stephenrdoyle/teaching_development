@@ -1134,3 +1134,60 @@ echo "The two files had the same number of contigs"
 exit
 fi
 ```
+
+** 7. Pro tips**
+- Always have a quick look at files with less or head to double check their format.
+- Watch out for data in headers and make sure you don't accidentally include it in your output.
+- Watch out for spaces, especially if you're using awk; if in doubt, use -F"\t".
+- Build regular expressions slowly, bit by bit.
+- If you did something smart but can't remember what it was, try typing history.
+- man the_name_of_a_command often gives you help.
+- **Google is an excellent resource.** Particularly prioritise results from stackoverflow.com, seqanswers.com and biostars.org.
+
+**8.       build your commands slowly**
+If you wanted me to calculate the sum of all of the scores for genes on contig-1 in a bed file, it’s best to run each of the following commands before moving onto the next:
+```bash
+# check which column is which and if there are any headers
+head -20 bar.bed
+
+# have a look at the scores
+head -20 bar.bed | awk '{print $5}'
+
+# check the contigs don't look wierd
+awk '{print $1}' bar.bed | sort -u | less
+
+# check the genes don't look wierd
+awk '{print $4}' bar.bed | sort -u | less
+
+# check that I can spot genes
+awk '$4 ~ /gene-/' bar.bed | head -20
+
+# check I can find genes on contig-1
+awk '($1 == "contig-1" && $4 ~ /gene-/)' bar.bed | head -20
+
+# check my algorithm works on a subset of the data
+head -20 bar.bed | awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}'
+
+# apply the algorithm to all of the data
+awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
+
+```
+
+**9.        which tool should I use?**
+- You should probably use **awk** if:
+     - your data has columns.
+     - you need to do simple maths.
+
+- You should probably use **grep** if:
+     - you're looking for files which contain some specific text (e.g. grep -r foo bar/: look in all the files in bar/ for any with the word 'foo').
+
+- You should probably use **find** if:
+     - you know something about a file (like it's name or creation date) but not where it is.
+     - you want a list of all the files in a subdirectory and its subdirectories etc.
+
+- You should write a **script** if:
+     - your code doesn’t fit easily on a single line.
+     - you are doing something you will want to repeat at a later date.
+     - you are doing something another person may wish to do.
+     - you are doing something sensitive (e.g. deleting a lot of files).
+     - you are doing some repeatedly.
