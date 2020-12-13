@@ -1120,7 +1120,7 @@ $ cat options_example2.sh
 | awk '/^foo/ {sum+=$2; count+=1} END {print sum/count}' bar.bed | print the average of the second value of lines starting with foo |
 ---
 
-** 5. piping, redirection and more advanced queries**
+**5. piping, redirection and more advanced queries**
 ```bash
 grep -hv '^#' bar/*.gff | awk -F"\t" '{print $1}' | sort -u
 # grep => -h: don't print file names
@@ -1154,7 +1154,7 @@ awk '(l<300 && $2>200000 && $3<250000) {l=($3-$2+1); print $0}' exercises.bed
 ```
 ---
 
-**6. a script**
+**6. A script**
 ```bash
 #!/usr/bin/env bash
 set -e # stop running the script if there are errors
@@ -1243,7 +1243,7 @@ awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
 ```
 ---
 
-**9.        which tool should I use?**
+**9. Which tool should I use?**
 - You should probably use **awk** if:
      - your data has columns.
      - you need to do simple maths.
