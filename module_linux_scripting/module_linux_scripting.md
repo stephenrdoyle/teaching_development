@@ -124,10 +124,12 @@ and provide examples of how they can be used in bioinformatics analyses.
 # your first command – move to the working directory to get started!
 
 cd /home/manager/Module2_Linux_Scripting
+
 ```
 
-- A list of useful commands can be found on a previous page.
-     - Many of them are two- or three-letter abbreviations. The earliest Linux systems (circa 1970) only had slow Teletype terminals, so it was faster to type 'rm' to remove a file than 'delete' or 'erase'. This terseness is a feature of Linux which still survives.
+- A list of useful commands can be found on a previous page.   
+     - Many of them are two- or three-letter abbreviations. The earliest Linux systems (circa 1970) only had slow Teletype terminals, so it was faster to type 'rm' to remove a file than 'delete' or 'erase'. This terseness is a feature of Linux which still survives.   
+
 ---
 
 
