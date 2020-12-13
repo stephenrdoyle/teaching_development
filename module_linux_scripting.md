@@ -62,8 +62,23 @@ and provide examples of how they can be used in bioinformatics analyses.
 - We've also included a cheat sheet. It probably won't make a lot of sense now, but it might be a useful reminder of this module later in the course.
 
 ### Some useful Linux commands
-|    Command   |    What it does   |
-|    ---  |    ---  |
-|    ls   |    Lists the contents of the current directory  |
-|    mkdir     |    Makes a new directory    |
-|    mv   |    moves or renames a file  |
+| Command   |    What it does   |
+| ---  |    ---  |
+| ls   | Lists the contents of the current directory  |
+| mkdir | Makes a new directory    |
+| mv   | moves or renames a file  |
+| cp   | copies a file  |
+| rm   | removes a file |
+| cat | concatenates two or more files |
+| less |    displays the contents of a file one page at a time     |
+| head | displays the first ten lines of a file |
+| tail |    displays the last ten lines of a file   |
+| cd | change directory   |
+| pwd | print the working directory |
+| find | find files matching an expression     |
+| grep | search for a pattern within a file    |
+| wc | count the lines, words, characters or bytes in a file |
+| kill | stop a process |
+| jobs | | list the processes that are running |
+
+```
