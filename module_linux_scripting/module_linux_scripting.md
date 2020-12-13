@@ -204,3 +204,44 @@ $ pwd
 - pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
      - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
      - More on that shortly ...
+
+
+---
+### Tab completion - *"make tab-it and hab-it"*
+- Typing out file names is really boring and you're likely to make typos which will at best make your command fail with a strange error and at worst overwrite some of your carefully crafted analysis.
+     - **Tab completion is a trick which normally reduces this risk significantly.**
+- Instead of typing out **ls genome_2/**, try typing **ls g** and then press the tab character (instead of Enter).
+     - Most of the rest of the folder name should just appear.
+     - As you have two folders with similar names, you will need to give your terminal a bit of a hand to work out which one you want.
+- Pressing the tab key twice will try and autocomplete what you’ve started typing or give you a list of all possible completions.
+     - This saves a lot of typing and typos.
+
+
+---
+### cd - change current working directory
+- The command "cd" stands for change directory.
+- The cd command will change the current working directory to another, in other words allow you to move up or down in the directory hierarchy.
+- To move into the genome_1 directory , complete the following:
+     - Note, you'll remember this more easily if you type this into the terminal rather copying and pasting.
+     - Also remember that you can use tab completion to save typing all of it.
+
+```bash
+# Move into the genome_1 directory using the cd command
+$ cd genome_1/
+
+# Use the pwd command to check you are in the right place
+$ pwd
+
+# it is often useful to list the contents of your new location after moving
+$ ls -lrt
+
+```
+- There are some short cuts for referring to directories:
+| Command | What it means |
+| ---     | ---     |
+| . | Current directory (one full stop) |
+| .. | Directory above (two full stops) |
+| ~ | Home directory (tilda) |
+| / | Root of the file system (like C: in Windows) |
+
+- Try the following commands, what do they do?
