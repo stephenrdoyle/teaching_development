@@ -1,5 +1,18 @@
 # Module - Linux Scripting
 
+---
+## Sections of the Unix course
+1. Overview and aims
+2. Getting started on the command line - Basic unix
+3. Files and directories
+4. Looking inside files
+5. Searching the content of files using grep
+6. Processing columns with awk  
+7. loops
+8. bash scripts
+9. UNIX quick reference guide
+
+---
 ## Overview and Aims
 
 ### Introducing Linux
@@ -35,18 +48,6 @@ introduce you to some basic Unix commands followed by some more advanced command
 and provide examples of how they can be used in bioinformatics analyses.
 
 
-
----
-## Sections of the Unix course
-1. Basic unix
-2. Files
-3. loops and bash scripts
-4. grep
-5. awk
-
-
-
----
 ### General points to consider
 - Linux is pretty straightforward, but there are some general points to remember that will make your life easier:
      - Linux is case sensitive - typing "ls" is not the same as typing "LS".
@@ -68,7 +69,7 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 
 ---
-## Some useful Linux commands
+### Some useful Linux commands
 | Command   |    What it does   |
 | ---  |    ---  |
 | ls   | Lists the contents of the current directory  |
@@ -100,7 +101,10 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 
 ---
-## Lets get started with the command line
+## Getting started on the command line - Basic unix
+
+### Introduction to the terminal
+- Lets get started with the command line
 - In this workshop, we will be using Ubuntu, a version of Linux which was specially designed for PCs.
 
 - We will use a terminal window to type in our Linux command line.
@@ -182,7 +186,7 @@ $ ls –ltr
 
 
 ---
-### Files and Directories
+## Files and Directories
 - Directories are the Linux equivalent of folders on a PC or Mac.
 - They are organised in a hierarchy, so directories can have sub-directories and so on.
 - Directories are very useful for organising your work and keeping your account tidy - for example, if you have more than one project, you can organise the files for each project into different directories to keep them separate. You can think of directories as rooms in a house. You can only be in one room (directory) at a time. When you are in a room you can see everything in that room easily. To see things in other rooms, you have to go to the appropriate door and crane your head around. Linux works in a similar manner, moving from directory to directory to access files.
@@ -213,18 +217,6 @@ $ pwd
 - pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
      - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
      - More on that shortly ...
-
-
----
-### Tab completion - *"make tab-it and hab-it"*
-- Typing out file names is really boring and you're likely to make typos which will at best make your command fail with a strange error and at worst overwrite some of your carefully crafted analysis.
-     - **Tab completion is a trick which normally reduces this risk significantly.**
-- Instead of typing out **ls genome_2/**, try typing **ls g** and then press the tab character (instead of Enter).
-     - Most of the rest of the folder name should just appear.
-     - As you have two folders with similar names, you will need to give your terminal a bit of a hand to work out which one you want.
-- Pressing the tab key twice will try and autocomplete what you’ve started typing or give you a list of all possible completions.
-     - This saves a lot of typing and typos.
-
 
 
 ---
@@ -268,6 +260,18 @@ $ ls ..
 $ ls ~
 
 ```
+
+---
+### Tab completion - *"make tab-it and hab-it"*
+- Typing out file names is really boring and you're likely to make typos which will at best make your command fail with a strange error and at worst overwrite some of your carefully crafted analysis.
+     - **Tab completion is a trick which normally reduces this risk significantly.**
+- Instead of typing out **ls genome_2/**, try typing **ls g** and then press the tab character (instead of Enter).
+     - Most of the rest of the folder name should just appear.
+     - As you have two folders with similar names, you will need to give your terminal a bit of a hand to work out which one you want.
+- Pressing the tab key twice will try and autocomplete what you’ve started typing or give you a list of all possible completions.
+     - This saves a lot of typing and typos.
+
+
 
 
 ---
@@ -701,7 +705,7 @@ $ sed ‘s/^chr/chromosome/’ gene_expression.bed > gene_expression_new.bed
 
 
 ---
-## File processing with awk
+## Processing columns with awk
 - awk is a programming language named after its three inventors: Alfred Aho, Peter Weinberger and Brian Kernighan.
 - awk is powerful at processing files, particularly column based files, which are commonplace in bioinformatics e.g. BED, GFF and SAM files.
 - Although complex programs can be written in awk, we will use it directly on the command line.
@@ -862,7 +866,7 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 
 
 ---
-### loops
+## Loops
 - It is common in bioinformatics to run the same analysis on many files.
 - Suppose we have a script which runs an analysis we wish to run on 100 data files.
 - It is both tedious and error type the same command 100 times so instead we use a loop.
@@ -902,7 +906,7 @@ $ while read -r chr start end name strand; do \
 - These commands can be put into a script which can be run on input data.
 - This allows for reproducibility meaning the same analysis can be run on multiple datasets in different locations.
 
-### First script
+### Your first script
 - It is traditional when learning a new programming language (in this case BASH) to write a simple script which says “Hello world!”. We will do this here.
 
 ```bash
