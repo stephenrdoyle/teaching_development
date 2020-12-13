@@ -517,7 +517,7 @@ $ cat genome_1.gff | wc -l
 
 - Did you get the same answer?
 - In the first example, you tell wc the file that you want it to review (genome_1.gff) and pass the -l option to say that you're only interested in the number of lines.
-- In the second example you use the | symbol which is also known as the pipe symbol. This pipes the output of cat genome_1.gff into the input of wc -l.
+- In the second example you use the \| symbol which is also known as the pipe symbol. This pipes the output of cat genome_1.gff into the input of wc -l.
      - This means that you can also use the same wc tool to count other things.
 
 ```bash
