@@ -330,3 +330,207 @@ $ ls -lrt
 6. Copy the file genome_2.bed in the genome_2 directory into the annotation subdirectory.
 7. Move all the fasta files in the directory genome_2 to the fasta subdirectory.
 8. How many files are there in the fasta directory?
+
+
+
+---
+## Looking inside files
+- A common task is to look at the contents of a file. This can be achieved using several different Unix commands, less, head and tail. Let us consider some examples.
+- But first, change directory into the Module_2_Linux_Scripting/files/ directory (hint: you might need to go up a few directories first using cd ../..).
+     - Make sure to check where you are using the “pwd” command.
+
+
+### less
+- The less command displays the contents of a specified file one screen at a time.
+- To test this command, open a terminal window on the computer, navigate to the directory files in the Unix_course directory and type the following command followed by the enter key:
+
+```bash
+# Use the less command to open a gff
+$ less genome_1.gff
+```
+- The contents of the file genome_1.gff is displayed one screen at a time, to view the next screen press the spacebar.
+- As genome_1.gff is a large file this will take a while, therefore you may want to escape or exit from this command.
+     - To do this, press the q key, this kills the less command and returns you to the Unix prompt.
+- less can also scroll backwards if you hit the b key.
+- Another useful feature is the slash key, /, to search for an expression in the file.
+     - Try it, search for the gene with locus tag t0038.
+     - What is the start and end position of this gene?
+
+
+### head and tail
+- Sometimes you may just want to view the text at the beginning or the end of a file, without having to display all of the file.
+     - The head and tail commands can be used to do this.
+- The head command displays the first ten lines of a file.
+
+```bash
+# To look at the beginning of the file genome_1.gff file use:
+$ head genome_1.gff
+```
+![](figures/06_head_command.png)
+```bash
+# To look at the end of genome_1.gff use:
+$ tail genome_1.gff
+```
+![](figures/07_tail_command.png)
+
+- The amount of the file that is displayed can be increased by adding extra arguments.
+     - To increase the number of lines viewed from 10 to 25 add -n 25 to the command:
+
+```bash
+# To look at the last 25 lines of genome_1.gff use:
+$ tail –n 25 genome_1.gff
+```
+- In this case you've given tail an argument in two parts.
+     - the -n says that you want to specify the number of lines to show and the 25 bit tells it how many.
+- Unlike earlier when we merged arguments like ls -lha together, it's not a good idea to merge multiple two part arguments together because otherwise it is ambiguous which value goes with which argument.
+     - -n is such a common argument for tail and head that it even has a shorthand: -n 25 and -25 mean the same thing.
+
+
+
+---
+### Saving time
+- Saving time while typing may not seem important, but the longer that you spend in front of a computer, the happier you will be if you can reduce the time you spend at the keyboard.
+- ressing the up/down arrows will let you scroll through previous commands entered.
+- If you highlight some text, middle clicking on the mouse will paste it on the command line.
+- Tab completion doesn't just work on filenames, it also works on commands.
+     - Try it by typing fin and pressing tab...
+          - fin
+- Although tab completion works on commands and file names, unfortunately it rarely works on options or other arguments.
+
+
+
+---
+### Getting help – man , -h , --help
+- There are a number of different ways you can be help with a command. Not all of these work for each command you will encounter, however, they are worth knowing and using to learn about new tools, and troubleshoot using commands that may not initially work for you.
+- For example, to get help using the tail command, we could use one of the following:
+```bash
+# I’m stuck – help!
+$ man tail
+Or
+$ tail –h
+Or
+$ tail --help
+```
+- The prefix man will typically give extensive detail about the command and its options, whereas –h and --help tend to give an abbreviated version.
+- IMPORTANTLY, each will give an example command, or usage statement.
+
+- There are several other useful commands that can be used to manipulate and summarise information inside files and we will introduce some of these next, cat, sort, wc and uniq.
+
+---
+### Writing to files
+- So far we've been running commands and outputting the results into the terminal. That's obviously useful but what if you want to save the results to another file?
+
+```bash
+# Extract the first line of genome_1.gff and output to a new file
+$ head -1 genome_1.gff > first_genome_1_line.txt
+
+```
+- It's likely that nothing obvious will have happened….
+- This is because the > character has redirected the output of the head command. Instead of writing to the standard output (your terminal) it sent the output into the file first_genome_1_line.txt.
+- Note that tab completion works for genome_1.gff because it exists but doesn't work for first_genome_1_line.txt because it doesn't exist yet.
+
+
+---
+### cat
+- cat is another way of reading files, but unlike less it just throws the entire contents of the file onto your standard output. Try it on first_genome_1_line.txt
+
+```bash
+# Read you new file using the cat command
+$ cat first_genome_1_line.txt
+
+# we don’t actually need this file, so lets remove it
+rm first_genome_1_line.txt
+
+```
+- The command cat can be used to join two or more files into a single file. The order in which the files are joined is determined by the order in which they appear in the command line. You can use cat and the > symbol to join files together.
+- Having looked at the beginning and end of the genome_1.gff file you should notice that in the GFF file the annotation comes first, then the DNA sequence at the end.
+- We can recreate this file by using cat to join two separate files, genome_1.noseq.gff and genome_1.fa, that contain the annotation and DNA sequence, respectively for genome_1. To join together these files use:
+
+```bash
+# Join the two files using the cat command
+$ cat genome_1.noseq.gff genome_1.fa > genome_1.concatenated.gff
+
+# lets check that the new file has been generated
+$ ls -lrt
+```
+
+---
+### wc - counting
+- The command wc counts lines (-l), words (-w) or characters (-c).
+- There are two ways you could use it:
+
+```bash
+# use the wc command on the file directly
+$ wc -l genome_1.gff
+
+# use cat to open the file, and “pipe” the result to the wc command
+$ cat genome_1.gff | wc -l
+
+```
+
+- Did you get the same answer?
+- In the first example, you tell wc the file that you want it to review (genome_1.gff) and pass the -l option to say that you're only interested in the number of lines.
+- In the second example you use the | symbol which is also known as the pipe symbol. This pipes the output of cat genome_1.gff into the input of wc -l.
+     - This means that you can also use the same wc tool to count other things.
+
+```bash
+# For example to count the number of files that are listed by ls use:
+$ ls | wc –l
+
+# You can connect as many commands as you want. For example:
+$ ls | grep ".gff" | wc -l
+
+```
+
+
+---
+### sort - sorting values
+- The sort command lets you sort the contents of the input.
+- When you sort the input, lines with identical content end up next to each other in the output. This is useful as the output can then be fed to the uniq command (see below) to count the number of unique lines in the input.
+
+```bash
+# For example, to sort the contents of a BED file use:
+$ sort genome_2.bed | head
+
+# look at the other end of the file using tail
+$ sort genome_2.bed | tail
+
+# To sort the contents of a BED file on position, type the following command.
+$ sort -k 2 -n genome_2.bed
+```
+- The sort command can sort by multiple columns e.g. 1st column and then 2nd column by specifying successive -k parameters in the command.
+- Why not have a look at the manual for sort to see what these options do?
+     - Remember that you can type / followed by a search phrase, n to find the next search hit, N to find the previous search hit and q to exit.
+
+---
+### uniq - finding unique values
+- The uniq command extracts unique lines from the input.
+- It is usually used in combination with sort to count unique values in the input.
+
+```bash
+# To get the list of chromosomes in the genome_2 bed file use:
+$ awk '{ print $1 }' genome_2.bed | sort | uniq
+
+```
+- How many chromosomes are there?
+     - You will learn more about the awk command later in this course.
+- Warning: uniq is really stupid; it can only spot that two lines are the same if they are right next to one another. Your therefore almost always want to sort your input data before using uniq.
+
+- Do you understand how this command is working? Why not try building it up piece by piece to see what it does?
+
+```bash
+# Lets see what happens when we build a command using pipes
+$ awk '{ print $1 }' genome_2.bed | less
+$ awk '{ print $1 }' genome_2.bed | sort | less
+$ awk '{ print $1 }' genome_2.bed | sort | uniq | less
+```
+
+
+---
+### Exercises
+- Open up a new terminal window, navigate to the files directory in the Unix_course directory and complete the following exercise:
+1. Use the head command to extract the first 500 lines of the file genome_1.gff and store the output in a new file called genome_1.500.gff.
+2. Use the wc command to count the number of lines in the genome_2.bed file.
+3. Use the sort command to sort the file genome_2.bed on chromosome and then gene position.
+4. Use the uniq command to count the number of features per chromosome in the genome_2.bed file.
+     - Hint: use the man command to look at the options for the uniq command. Or peruse the wc or grep manuals. There's more than one way to do it!
