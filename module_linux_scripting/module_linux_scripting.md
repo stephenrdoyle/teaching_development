@@ -160,7 +160,8 @@ $ ls –ltr
 ![](figures/04_ls_long.png)
 
 ### Permissions
-- Every file has permissions which restrict what can be done with a file or directory.
+- Every file has permissions which restrict what can be done with a file or directory.  
+
 | --- | --- |
 | Read (r) |	permission to read from a file/directory |
 | Write (w) | 	permission to modify a file/directory |
