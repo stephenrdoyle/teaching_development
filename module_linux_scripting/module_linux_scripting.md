@@ -960,6 +960,7 @@ $ while read -r chr start end name strand; do \
      - the while loop starts with the "do" and finishes with the "done"
      - inside the while loop, there is the “if” command - if the conditions are TRUE, ie., the chr ==1 AND strand ==1, then we “echo” or print the data in the columns chr, start, end, name & strand. These were set as variables at the start of the while command
      - The "if" command starts with "then", and finishes with "fi".
+
 ---
 [↥ **Back to top**](#top)
 
@@ -985,6 +986,7 @@ $ cd scripts
 $ gedit &
 
 # In the editor window type ‘echo “Hello world!”’ and save the file with the name hello.sh.
+
 ```
 - Congratulations! You have created your first script.
 - We will now run the script.
@@ -993,7 +995,9 @@ $ gedit &
 # First check to see whether the file in place then run it.
 $ ls hello.sh
 $ bash hello.sh
+
 ```
+
 ---
 
 
@@ -1002,6 +1006,7 @@ $ bash hello.sh
 - To tell Unix that a script is a BASH script, edit it so the first line reads
 ```bash
 #!/usr/bin/env bash
+
 ```
 - Next we need to make the script executable. To do this, we use the Unix command chmod
 
@@ -1047,6 +1052,7 @@ $ chmod +x myscript.sh
 
 ```
 - myscript.sh can now be edited using a text editor.
+
 ---
 
 
@@ -1079,6 +1085,7 @@ $ cat options_example2.sh
 ```
 - We have set the variable filename to be $1 and the variable number_of_lines to be $2.
 - This may seem unimportant with a simple script but, as you write more complex scripts or adapt them to particular datasets, you will realise that setting meaningful variable names saves a lot of time.
+
 ---
 
 
@@ -1089,6 +1096,7 @@ $ cat options_example2.sh
      - An example input file is provided called bash_scripts/exercise_3.gff.
      - Use your imagination as to what you want to summarise.
      - You may want to look back at the awk section of the manual for inspiration.
+
 ---
 [↥ **Back to top**](#top)
 
@@ -1112,6 +1120,7 @@ $ cat options_example2.sh
 | mv baz/foo .. | Move the foo directory into the parent directory |
 | rm -r ../foo | remove the directory called foo/ from the parent directory |
 | find foo/ -name "*.gff" | find all the files with a gff extension in the directory foo/ |
+
 ---
 
 **2. Looking in files**
@@ -1126,6 +1135,7 @@ $ cat options_example2.sh
 | wc -l bar.bed | how many lines are there |
 | sort -k 2 -n bar.bed | sort by the second column in numerical order |
 | awk '{print $1}' bar.bed \| sort \| uniq | show the unique entries in the first column |
+
 ---
 
 **3. Grep**
@@ -1139,6 +1149,7 @@ $ cat options_example2.sh
 | grep 'foo$' bar.bed | show me all of the lines ending in foo |
 | grep -i '^[acgt]$' bar.bed | show me all of the lines which only have the characters a,c,g and t (ignoring their case) |
 | grep -v foo bar.bed | don't show me any files with foo in them |
+
 ---
 
 **4. awk**
@@ -1152,6 +1163,7 @@ $ cat options_example2.sh
 | awk -F"\t" '{print $(NF-1)}' bar.bed | print the penultimate column |
 | awk '{sum+=$2} END {print sum}' bar.bed | print the sum of the second column |
 | awk '/^foo/ {sum+=$2; count+=1} END {print sum/count}' bar.bed | print the average of the second value of lines starting with foo |
+
 ---
 
 **5. Piping, redirection and more advanced queries**
@@ -1191,6 +1203,7 @@ awk '(l<300 && $2>200000 && $3<250000) {l=($3-$2+1); print $0}' exercises.bed
 # contig-2 242625 243449 gene-68 46.5 +
 
 ```
+
 ---
 
 **6. A script**
@@ -1239,6 +1252,7 @@ echo "The two files had the same number of contigs"
 exit
 fi
 ```
+
 ---
 
 
@@ -1251,6 +1265,7 @@ fi
 - If you did something smart but can't remember what it was, try typing history.
 - **man the_name_of_a_command** often gives you help.
 - **Google is an excellent resource.** Particularly prioritise results from stackoverflow.com, seqanswers.com and biostars.org.
+
 ---
 
 
@@ -1283,6 +1298,7 @@ head -20 bar.bed | awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print
 awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
 
 ```
+
 ---
 
 
@@ -1304,6 +1320,7 @@ awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
      - you are doing something another person may wish to do.
      - you are doing something sensitive (e.g. deleting a lot of files).
      - you are doing some repeatedly.
+     
 ---
 [↥ **Back to top**](#top)
 
