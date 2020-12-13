@@ -92,7 +92,7 @@ and provide examples of how they can be used in bioinformatics analyses.
           - ">>>" : this is the python prompt
 
 
-
+---
 ### Lets get started with the command line
 - In this workshop, we will be using Ubuntu, a version of Linux which was specially designed for PCs.
 
@@ -118,7 +118,7 @@ cd /home/manager/Module2_Linux_Scripting
 - A list of useful commands can be found on a previous page.
      - Many of them are two- or three-letter abbreviations. The earliest Linux systems (circa 1970) only had slow Teletype terminals, so it was faster to type 'rm' to remove a file than 'delete' or 'erase'. This terseness is a feature of Linux which still survives.
 
-
+---
 ### Command line arguements
 - You may subtly alter these commands by specifying certain options when typing in the command line.
 - Typing any Linux command for example ls, mv or cd at the Linux prompt with the appropriate variables such as files names or directories will result in the tasks being performed on pressing the enter key.
@@ -159,6 +159,7 @@ $ ls –ltr
 
 ![](figures/04_ls_long.png)
 
+---
 ### Permissions
 - Every file has permissions which restrict what can be done with a file or directory.  
 
@@ -173,7 +174,7 @@ $ ls –ltr
 - the third set of permissions (8,9,10) refers to what everyone else can do.
 
 
-
+---
 ### Files and Directories
 - Directories are the Linux equivalent of folders on a PC or Mac.
 - They are organised in a hierarchy, so directories can have sub-directories and so on.
@@ -184,6 +185,7 @@ $ ls –ltr
 
 - Therefore, if there is a file called genome.seq in the dna directory its location or full pathname can be expressed as /nfs/dna/genome.seq.
 
+---
 ### pwd - find where you are
 - The command pwd stands for print working directory.
 - A command (also known as a program) is something which tells the computer to do something. Commands are therefore often the first thing that you type into the terminal (although we'll show you some advanced exceptions to this rule later).
