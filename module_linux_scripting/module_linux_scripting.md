@@ -150,3 +150,6 @@ $ ls –ltr
 
 # this will therefore provide a detailed list, with the most recent files at the bottom. This is really useful if you have a lot of files in the same directory
 ```
+- To get a list of files in the terminal you can use the ls command with no other options. This tells the computer you want a list of all the files in the current directory.  The same information is also displayed in the file browser but with nice looking pictures.
+
+![](figures/03_list_files.png)
