@@ -1001,7 +1001,7 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 ---
 ## UNIX quick reference guide
 
-1. Looking at files and moving them around
+**1. Looking at files and moving them around**
 
 | command | what is it doing |
 | --- | --- |
@@ -1017,7 +1017,7 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 | rm -r ../foo | remove the directory called foo/ from the parent directory |
 | find foo/ -name "*.gff" | find all the files with a gff extension in the directory foo/ |
 
-2. Looking in files
+**2. Looking in files**
 
 | command | what is it doing |
 | --- | --- |
@@ -1031,10 +1031,106 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 | awk '{print $1}' bar.bed \| sort \| uniq | show the unique entries in the first column |
 
 
-3. Grep
+**3. Grep**
 
 | command | what is it doing |
 | --- | --- |
 | grep foo bar.bed | show me the lines in bar.bed with 'foo' in them |
 | grep foo baz/* | show me all examples of foo in the files immediately within baz/ |
 | grep -r foo baz/ | show me all examples of foo in baz/ and every subdirectory within it |
+| grep '^foo' bar.bed | show me all of the lines begining with foo |
+| grep 'foo$' bar.bed | show me all of the lines ending in foo |
+| grep -i '^[acgt]$' bar.bed | show me all of the lines which only have the characters a,c,g and t (ignoring their case) |
+| grep -v foo bar.bed | don't show me any files with foo in them |
+
+**4. awk**
+
+| command | what is it doing |
+| --- | --- |
+| awk '{print $1}' bar.bed | just the first column |
+| awk '$4 ~ /^foo/' bar.bed | just rows where the 4th column starts with foo |
+| awk '$4 == "foo" {print $1}' bar.bed | the first column of rows where the 4th column is foo |
+| awk -F"\t" '{print $NF}' bar.bed | ignore spaces and print the last column |
+| awk -F"\t" '{print $(NF-1)}' bar.bed | print the penultimate column |
+| awk '{sum+=$2} END {print sum}' bar.bed | print the sum of the second column |
+| awk '/^foo/ {sum+=$2; count+=1} END {print sum/count}' bar.bed | print the average of the second value of lines starting with foo |
+
+** 5. piping, redirection and more advanced queries**
+```bash
+grep -hv '^#' bar/*.gff | awk -F"\t" '{print $1}' | sort -u
+# grep => -h: don't print file names
+# -v: don't give me matching files
+# '^#': get rid of the header rows
+# 'bar/*.gff': only look in the gff files in bar/
+# awk => print the first column
+# sort => -u: give me unique values
+
+awk 'NR%10 == 0' bar.bed | head -20
+# awk => NR: is the row number
+# NR%10: is the modulo (remander) of dividing by 10
+# awk is therefore giving you every 10th line
+# head => only show the first 20
+
+awk '{l=($3-$2+1)}; (l<300 && $2>200000 && $3<250000)' exercises.bed
+# Gives:
+# contig-2 201156 201359 gene-67 24.7 -
+# contig-4 245705 245932 gene-163 24.8 +
+# Finds all of the lines with features less than 300 bases long which start
+# after base 200,000 and end before base 250,000
+# Note that this appears to have the action before the pattern. This is
+# because we need to calculate the length of each feature before we use it
+# for filtering. If they were the other way around, you'd get the line
+# immediatly after the one you want:
+awk '(l<300 && $2>200000 && $3<250000) {l=($3-$2+1); print $0}' exercises.bed
+# Gives:
+# contig-2 201156 201359 gene-67 24.7 -
+# contig-2 242625 243449 gene-68 46.5 +
+
+```
+
+**6. a script**
+```bash
+#!/usr/bin/env bash
+set -e # stop running the script if there are errors
+set -u # stop running the script if it uses an unknown variable
+set -x # print every line before you run it (useful for debugging but annoying)
+
+if [ $# -ne 2 ]
+then
+echo "You must provide two files"
+exit 1 # exit the programme (and number > 0 reports that this is a failure)
+fi
+
+file_one=$1
+file_two=$2
+
+if [ ! -f $file_one ]
+then
+echo "The first file couldn't be found"
+exit 2
+fi
+
+if [ ! -f $file_two ]
+then
+echo "The second file couldn't be found"
+exit 2
+fi
+
+# Get the lines which aren't headers,
+# take the first column and return the unique values
+number_of_contigs_in_one=$(awk '$1 !~ /^#/ {print $1}' $file_one | sort -u | wc -l)
+number_of_contigs_in_two=$(awk '/^[^#]/ {print $1}' $file_two | sort -u | wc -l)
+
+if [ $number_of_contigs_in_one -gt $number_of_contigs_in_two ]
+then
+echo "The first file had more unique contigs than the second"
+exit
+elif [ $number_of_contigs_in_one -lt $number_of_contigs_in_two ]
+then
+echo "The second file had more unique contigs"
+exit
+else
+echo "The two files had the same number of contigs"
+exit
+fi
+```
