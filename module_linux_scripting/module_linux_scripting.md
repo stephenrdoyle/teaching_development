@@ -198,7 +198,7 @@ $ cd basic
 $ pwd
 
 ```
-- Remember that Unix is case sensitive, *PWD* is not the same as *pwd*.
+- Remember that Unix is case sensitive, **PWD** is not the same as **pwd**.
 - pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
      - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
      - More on that shortly ...
