@@ -34,14 +34,17 @@ only need 10 or so to achieve most of what you want to do. In this course we wil
 introduce you to some basic Unix commands followed by some more advanced commands
 and provide examples of how they can be used in bioinformatics analyses.
 
-### Sections of the Unix course
+
+
+---
+## Sections of the Unix course
 1. Basic unix
 2. Files
 3. loops and bash scripts
 4. grep
 5. awk
 
-
+---
 ### General points to consider
 - Linux is pretty straightforward, but there are some general points to remember that will make your life easier:
      - Linux is case sensitive - typing "ls" is not the same as typing "LS".
@@ -61,7 +64,9 @@ and provide examples of how they can be used in bioinformatics analyses.
 ### Cheat sheet
 - We've also included a cheat sheet. It probably won't make a lot of sense now, but it might be a useful reminder of this module later in the course.
 
-### Some useful Linux commands
+
+---
+## Some useful Linux commands
 | Command   |    What it does   |
 | ---  |    ---  |
 | ls   | Lists the contents of the current directory  |
@@ -93,7 +98,7 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 
 ---
-### Lets get started with the command line
+## Lets get started with the command line
 - In this workshop, we will be using Ubuntu, a version of Linux which was specially designed for PCs.
 
 - We will use a terminal window to type in our Linux command line.
@@ -119,7 +124,7 @@ cd /home/manager/Module2_Linux_Scripting
      - Many of them are two- or three-letter abbreviations. The earliest Linux systems (circa 1970) only had slow Teletype terminals, so it was faster to type 'rm' to remove a file than 'delete' or 'erase'. This terseness is a feature of Linux which still survives.
 
 ---
-### Command line arguements
+### Command line arguments
 - You may subtly alter these commands by specifying certain options when typing in the command line.
 - Typing any Linux command for example ls, mv or cd at the Linux prompt with the appropriate variables such as files names or directories will result in the tasks being performed on pressing the enter key.
 - The ‘command’ is separated from the options and arguments by a space.  
