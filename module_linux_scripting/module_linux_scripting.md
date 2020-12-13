@@ -237,6 +237,7 @@ $ ls -lrt
 
 ```
 - There are some short cuts for referring to directories:
+
 | Command | What it means |
 | ---     | ---     |
 | . | Current directory (one full stop) |
