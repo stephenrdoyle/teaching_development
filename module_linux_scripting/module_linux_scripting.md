@@ -161,7 +161,7 @@ $ ls –ltr
 
 ### Permissions
 - Every file has permissions which restrict what can be done with a file or directory.
-
+| --- | --- |
 | Read (r) |	permission to read from a file/directory |
 | Write (w) | 	permission to modify a file/directory |
 | Execute (x) | 	Tells the operating system that the file contains code for the computer to 	
