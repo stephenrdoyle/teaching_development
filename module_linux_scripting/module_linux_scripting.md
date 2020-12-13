@@ -2,18 +2,18 @@
 
 ---
 ## Sections of the Unix course
-1. Overview and aims
-2. Getting started on the command line - Basic unix
-3. Files and directories
-4. Looking inside files
-5. Searching the content of files using grep
-6. Processing columns with awk  
-7. loops
-8. bash scripts
-9. UNIX quick reference guide
+1. [Overview and aims](#overview)
+2. [Getting started on the command line - Basic unix](#getting_started)
+3. [Files and directories](#files_directories)
+4. [Looking inside files](#inside_files)
+5. [Searching the content of files using grep](#grep)
+6. [Processing columns with awk](#awk)
+7. [Loops](#loops)
+8. [Bash scripts](#scripts)
+9. [UNIX quick reference guide](#quick_ref)
 
 ---
-## Overview and Aims
+## Overview and Aims <a name="overview"></a>
 
 ### Introducing Linux
 Unix is the standard operating system on most large computer systems in scientific
@@ -100,8 +100,9 @@ and provide examples of how they can be used in bioinformatics analyses.
           - ">>>" : this is the python prompt
 
 
+[↥ **Back to top**](#top)
 ---
-## Getting started on the command line - Basic unix
+## Getting started on the command line - Basic unix <a name="getting_started"></a>
 
 ### Introduction to the terminal
 - Lets get started with the command line
@@ -185,8 +186,9 @@ $ ls –ltr
 - the third set of permissions (8,9,10) refers to what everyone else can do.
 
 
+[↥ **Back to top**](#top)
 ---
-## Files and Directories
+## Files and Directories <a name="file_directories"></a>
 - Directories are the Linux equivalent of folders on a PC or Mac.
 - They are organised in a hierarchy, so directories can have sub-directories and so on.
 - Directories are very useful for organising your work and keeping your account tidy - for example, if you have more than one project, you can organise the files for each project into different directories to keep them separate. You can think of directories as rooms in a house. You can only be in one room (directory) at a time. When you are in a room you can see everything in that room easily. To see things in other rooms, you have to go to the appropriate door and crane your head around. Linux works in a similar manner, moving from directory to directory to access files.
@@ -347,8 +349,11 @@ $ ls -lrt
 
 
 
+
+
+[↥ **Back to top**](#top)
 ---
-## Looking inside files
+## Looking inside files <a name="inside_files"></a>
 - A common task is to look at the contents of a file. This can be achieved using several different Unix commands, less, head and tail. Let us consider some examples.
 - But first, change directory into the Module_2_Linux_Scripting/files/ directory (hint: you might need to go up a few directories first using cd ../..).
      - Make sure to check where you are using the “pwd” command.
@@ -550,9 +555,9 @@ $ awk '{ print $1 }' genome_2.bed | sort | uniq | less
      - Hint: use the man command to look at the options for the uniq command. Or peruse the wc or grep manuals. There's more than one way to do it!
 
 
-
+[↥ **Back to top**](#top)
 ---
-## Searching the content of files using grep
+## Searching the content of files using grep <a name="grep"></a>
 - A common task is extraction of information from a large file or many large files.
 - This is achieved using the Unix command grep. This stands for “Globally search for a Regular Expression and Print”.
 
@@ -703,9 +708,9 @@ $ sed ‘s/^chr/chromosome/’ gene_expression.bed > gene_expression_new.bed
 
 ```
 
-
+[↥ **Back to top**](#top)
 ---
-## Processing columns with awk
+## Processing columns with awk <a name="awk"></a>
 - awk is a programming language named after its three inventors: Alfred Aho, Peter Weinberger and Brian Kernighan.
 - awk is powerful at processing files, particularly column based files, which are commonplace in bioinformatics e.g. BED, GFF and SAM files.
 - Although complex programs can be written in awk, we will use it directly on the command line.
@@ -864,9 +869,9 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 
 
 
-
+[↥ **Back to top**](#top)
 ---
-## Loops
+## Loops <a name="loops"></a>
 - It is common in bioinformatics to run the same analysis on many files.
 - Suppose we have a script which runs an analysis we wish to run on 100 data files.
 - It is both tedious and error type the same command 100 times so instead we use a loop.
@@ -898,9 +903,9 @@ $ while read -r chr start end name strand; do \
      - The “if” command starts with “then”, and finishes with “fi”
 
 
-
+[↥ **Back to top**](#top)
 ---
-## BASH scripts
+## BASH scripts <a name="scripts"></a>
 - So far, we have run single commands in the terminal.
 - However, it is often useful to run multiple commands to process data and produce output.
 - These commands can be put into a script which can be run on input data.
@@ -1021,9 +1026,9 @@ $ cat options_example2.sh
 
 
 
-
+[↥ **Back to top**](#top)
 ---
-## UNIX quick reference guide
+## UNIX quick reference guide <a name="quick_ref"></a>
 
 **1. Looking at files and moving them around**
 
@@ -1215,3 +1220,10 @@ awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
      - you are doing something another person may wish to do.
      - you are doing something sensitive (e.g. deleting a lot of files).
      - you are doing some repeatedly.
+
+[↥ **Back to top**](#top)
+
+
+******
+## License
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.
