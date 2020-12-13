@@ -1,7 +1,7 @@
 # Module - Linux Scripting
 
----
-## Sections of the Unix course
+
+## Table of Contents
 1. [Overview and aims](#overview)
 2. [Getting started on the command line - Basic unix](#getting_started)
 3. [Files and directories](#files_directories)
@@ -11,8 +11,9 @@
 7. [Loops](#loops)
 8. [Bash scripts](#scripts)
 9. [UNIX quick reference guide](#quick_ref)
-
 ---
+
+
 ## Overview and Aims <a name="overview"></a>
 
 ### Introducing Linux
@@ -33,8 +34,8 @@ of people to run programs on the same computer at the same time. This is why it
 is the preferred operating system for large-scale scientific computing. It runs
 on all kinds of machines, from mobile phones (Android), desktop PCs... to supercomputers.
 
-### Why Linux
 
+### Why Linux
 Increasingly, the output of biological research exists as in silico data, usually
 in the form of large text files. Unix is particularly suitable for working with
 such files and has several powerful and flexible commands that can be used to
@@ -61,14 +62,9 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 
 
-### Following the course in a terminal
-- In this course you will use a terminal window to type in your Unix commands.
-- This is similar to the "Command Prompt" window on MS Windows systems, which allows the user to type DOS commands to manage files.
 
 
 
-
----
 ### Some useful Linux commands
 | Command   |    What it does   |
 | ---  |    ---  |
@@ -130,8 +126,9 @@ cd /home/manager/Module2_Linux_Scripting
 
 - A list of useful commands can be found on a previous page.
      - Many of them are two- or three-letter abbreviations. The earliest Linux systems (circa 1970) only had slow Teletype terminals, so it was faster to type 'rm' to remove a file than 'delete' or 'erase'. This terseness is a feature of Linux which still survives.
-
 ---
+
+
 ### Command line arguments
 - You may subtly alter these commands by specifying certain options when typing in the command line.
 - Typing any Linux command for example ls, mv or cd at the Linux prompt with the appropriate variables such as files names or directories will result in the tasks being performed on pressing the enter key.
@@ -171,8 +168,9 @@ $ ls –ltr
 - By using the –l option we can change the behaviour of the ls command. Instead of printing out a simple list, it will print out additional information about each file. There is a space between the command ls and the –l option. There is no space between the dash and the letter l.
 
 ![](figures/04_ls_long.png)
-
 ---
+
+
 ### Permissions
 - Every file has permissions which restrict what can be done with a file or directory.  
 
@@ -185,10 +183,11 @@ $ ls –ltr
 - The first set of permissions (characters 2,3,4) refer to what the owner of the file can do,
 - the second set of permissions (5,6,7) refers to what members of the Linux group can do
 - the third set of permissions (8,9,10) refers to what everyone else can do.
-
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
 ## Files and Directories <a name="file_directories"></a>
 - Directories are the Linux equivalent of folders on a PC or Mac.
 - They are organised in a hierarchy, so directories can have sub-directories and so on.
@@ -198,10 +197,10 @@ $ ls –ltr
 ![](figures/05_directories.png)
 
 - Therefore, if there is a file called genome.seq in the dna directory its location or full pathname can be expressed as /nfs/dna/genome.seq.
-
-
-
 ---
+
+
+
 ### pwd - find where you are
 - The command pwd stands for print working directory.
 - A command (also known as a program) is something which tells the computer to do something. Commands are therefore often the first thing that you type into the terminal (although we'll show you some advanced exceptions to this rule later).
@@ -220,9 +219,9 @@ $ pwd
 - pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
      - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
      - More on that shortly ...
-
-
 ---
+
+
 ### cd - change current working directory
 - The command "cd" stands for change directory.
 - The cd command will change the current working directory to another, in other words allow you to move up or down in the directory hierarchy.
@@ -263,8 +262,9 @@ $ ls ..
 $ ls ~
 
 ```
-
 ---
+
+
 ### Tab completion - *"make tab-it and hab-it"*
 - Typing out file names is really boring and you're likely to make typos which will at best make your command fail with a strange error and at worst overwrite some of your carefully crafted analysis.
      - **Tab completion is a trick which normally reduces this risk significantly.**
@@ -273,11 +273,10 @@ $ ls ~
      - As you have two folders with similar names, you will need to give your terminal a bit of a hand to work out which one you want.
 - Pressing the tab key twice will try and autocomplete what you’ve started typing or give you a list of all possible completions.
      - This saves a lot of typing and typos.
-
-
-
-
 ---
+
+
+
 ### cp - copy a file
 - The command cp stands for copy.
 - The cp command will copy a file from one location to another and you will end up with two copies of the file.
@@ -289,10 +288,10 @@ $ cp genome_1.gff genome_1.withseq.gff
 # Use ls to check the contents of the current directory for the copied file:
 $ ls -lrt
 ```
-
-
-
 ---
+
+
+
 ### mv - move a file
 - The mv command stand for move.
 - The mv command will move a file from one location to another. This moves the file rather than copies it, therefore you end up with only one file rather than two.
@@ -314,8 +313,10 @@ $ ls –lrt ../
 $ cd ../
 $ ls -lrt
 ```
-
 ---
+
+
+
 ### rm - delete a file
 - The command rm stands for remove.
 - The rm command will delete a file permanently from your computer so take care!
@@ -330,10 +331,10 @@ $ ls -lrt
 ```
 - Linux as a general rule does exactly what you ask, and does not ask for confirmation.
 - Unfortunately there is no "recycle bin" on the command line to recover the file from, so you have to be careful.
-
-
-
 ---
+
+
+
 ### Exercises
 - Many people panic when they are confronted with a Unix prompt! Don't! All the commands you need to solve these exercises are provided above and don't be afraid to make a mistake.
 - If you get lost ask a demonstrator. If you are a person skilled at Unix, be patient this is only a short exercise.
@@ -347,13 +348,12 @@ $ ls -lrt
 6. Copy the file genome_2.bed in the genome_2 directory into the annotation subdirectory.
 7. Move all the fasta files in the directory genome_2 to the fasta subdirectory.
 8. How many files are there in the fasta directory?
-
-
-
-
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
+
 ## Looking inside files <a name="inside_files"></a>
 - A common task is to look at the contents of a file. This can be achieved using several different Unix commands, less, head and tail. Let us consider some examples.
 - But first, change directory into the Module_2_Linux_Scripting/files/ directory (hint: you might need to go up a few directories first using cd ../..).
@@ -375,7 +375,7 @@ $ less genome_1.gff
 - Another useful feature is the slash key, /, to search for an expression in the file.
      - Try it, search for the gene with locus tag t0038.
      - What is the start and end position of this gene?
-
+---
 
 ### head and tail
 - Sometimes you may just want to view the text at the beginning or the end of a file, without having to display all of the file.
@@ -404,10 +404,10 @@ $ tail –n 25 genome_1.gff
      - the -n says that you want to specify the number of lines to show and the 25 bit tells it how many.
 - Unlike earlier when we merged arguments like ls -lha together, it's not a good idea to merge multiple two part arguments together because otherwise it is ambiguous which value goes with which argument.
      - -n is such a common argument for tail and head that it even has a shorthand: -n 25 and -25 mean the same thing.
-
-
-
 ---
+
+
+
 ### Saving time
 - Saving time while typing may not seem important, but the longer that you spend in front of a computer, the happier you will be if you can reduce the time you spend at the keyboard.
 - ressing the up/down arrows will let you scroll through previous commands entered.
@@ -416,10 +416,10 @@ $ tail –n 25 genome_1.gff
      - Try it by typing fin and pressing tab...
           - fin
 - Although tab completion works on commands and file names, unfortunately it rarely works on options or other arguments.
-
-
-
 ---
+
+
+
 ### Getting help – man , -h , --help
 - There are a number of different ways you can be help with a command. Not all of these work for each command you will encounter, however, they are worth knowing and using to learn about new tools, and troubleshoot using commands that may not initially work for you.
 - For example, to get help using the tail command, we could use one of the following:
@@ -435,8 +435,10 @@ $ tail --help
 - IMPORTANTLY, each will give an example command, or usage statement.
 
 - There are several other useful commands that can be used to manipulate and summarise information inside files and we will introduce some of these next, cat, sort, wc and uniq.
-
 ---
+
+
+
 ### Writing to files
 - So far we've been running commands and outputting the results into the terminal. That's obviously useful but what if you want to save the results to another file?
 
@@ -448,9 +450,10 @@ $ head -1 genome_1.gff > first_genome_1_line.txt
 - It's likely that nothing obvious will have happened….
 - This is because the > character has redirected the output of the head command. Instead of writing to the standard output (your terminal) it sent the output into the file first_genome_1_line.txt.
 - Note that tab completion works for genome_1.gff because it exists but doesn't work for first_genome_1_line.txt because it doesn't exist yet.
-
-
 ---
+
+
+
 ### cat
 - cat is another way of reading files, but unlike less it just throws the entire contents of the file onto your standard output. Try it on first_genome_1_line.txt
 
@@ -473,8 +476,10 @@ $ cat genome_1.noseq.gff genome_1.fa > genome_1.concatenated.gff
 # lets check that the new file has been generated
 $ ls -lrt
 ```
-
 ---
+
+
+
 ### wc - counting
 - The command wc counts lines (-l), words (-w) or characters (-c).
 - There are two ways you could use it:
@@ -501,9 +506,11 @@ $ ls | wc –l
 $ ls | grep ".gff" | wc -l
 
 ```
-
-
 ---
+
+
+
+
 ### sort - sorting values
 - The sort command lets you sort the contents of the input.
 - When you sort the input, lines with identical content end up next to each other in the output. This is useful as the output can then be fed to the uniq command (see below) to count the number of unique lines in the input.
@@ -521,8 +528,10 @@ $ sort -k 2 -n genome_2.bed
 - The sort command can sort by multiple columns e.g. 1st column and then 2nd column by specifying successive -k parameters in the command.
 - Why not have a look at the manual for sort to see what these options do?
      - Remember that you can type / followed by a search phrase, n to find the next search hit, N to find the previous search hit and q to exit.
-
 ---
+
+
+
 ### uniq - finding unique values
 - The uniq command extracts unique lines from the input.
 - It is usually used in combination with sort to count unique values in the input.
@@ -544,9 +553,10 @@ $ awk '{ print $1 }' genome_2.bed | less
 $ awk '{ print $1 }' genome_2.bed | sort | less
 $ awk '{ print $1 }' genome_2.bed | sort | uniq | less
 ```
-
-
 ---
+
+
+
 ### Exercises
 - Open up a new terminal window, navigate to the files directory in the Unix_course directory and complete the following exercise:
 1. Use the head command to extract the first 500 lines of the file genome_1.gff and store the output in a new file called genome_1.500.gff.
@@ -554,10 +564,12 @@ $ awk '{ print $1 }' genome_2.bed | sort | uniq | less
 3. Use the sort command to sort the file genome_2.bed on chromosome and then gene position.
 4. Use the uniq command to count the number of features per chromosome in the genome_2.bed file.
      - Hint: use the man command to look at the options for the uniq command. Or peruse the wc or grep manuals. There's more than one way to do it!
-
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
+
 ## Searching the content of files using grep <a name="grep"></a>
 - A common task is extraction of information from a large file or many large files.
 - This is achieved using the Unix command grep. This stands for “Globally search for a Regular Expression and Print”.
@@ -624,8 +636,10 @@ $ grep chr1 gene_expression_sneaky.bed | grep “-”
 - You will notice that grep reports several lines form genes which aren’t on chromosome 1.  
      - This is because each of them contains the text “chr1” and the text “-” somewhere.
 - We need a way to refine our searches further.
-
 ---
+
+
+
 ### Regular expressions
 - Regular expressions provide a way of defining more specific patterns to match.
 - We will concentrate on some of the most useful and commonly used regular expressions.
@@ -654,11 +668,10 @@ $ grep $‘^chr1\t’ gene_expression_sneaky.bed | grep ‘\-$’
 ```
 - We now have only one gene reported and it is on chromosome 1 and on the negative strand.
 - Further, more complex examples of regular expressions and their use may be found in the reference guide at the end of this chapter.
-
-
-
-
 ---
+
+
+
 ### Useful grep command line options
 - A common requirement is to count the number of matches to a search term.
 - This could be done by piping the output of grep into wc -l but can be done more succinctly using grep’s -c option.
@@ -691,8 +704,10 @@ $ grep -i ACGT sequences.fasta
 $ grep -v $‘^chr1\t’ gene_expression_sneaky.bed
 
 ```
-
 ---
+
+
+
 ### Replacing matches to regular expressions
 - In Unix, it is possible to replace every match to a character string or regular expression with something else using the command sed. This stands for “stream editor”.
 
@@ -708,9 +723,13 @@ $ sed ‘s/^chr/chromosome/’ gene_expression.bed
 $ sed ‘s/^chr/chromosome/’ gene_expression.bed > gene_expression_new.bed
 
 ```
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
+
+
 ## Processing columns with awk <a name="awk"></a>
 - awk is a programming language named after its three inventors: Alfred Aho, Peter Weinberger and Brian Kernighan.
 - awk is powerful at processing files, particularly column based files, which are commonplace in bioinformatics e.g. BED, GFF and SAM files.
@@ -753,6 +772,8 @@ $ awk -F”\t” ‘{print $1}’ genes.gff
      - The option -F”\t” is needed to tell awk that the columns are tab separated.
      - For each line of the file, awk simply does what is inside the curly brackets, in this case, simply print the first column.
 - Try to modify the command to list each chromosome once only. (Hint: you’ll need to pipe your output into a Unix command we saw earlier.)
+---
+
 
 ### Filtering input files
 - Like grep, awk can be used to filter lines from a file.
@@ -806,9 +827,10 @@ $ awk ‘/repeat/’ genes.gff
 $ awk ‘!/repeat/’ genes.gff
 
 ```
-
-
 ---
+
+
+
 ### Sanity checking files
 - **Never ever trust** the content of a bioinformatics file, even if you generated it.
 - With the awk we have learnt so far, we can do some basic sanity checks on a GFF file
@@ -828,13 +850,14 @@ $ awk -F"\t" '$5 < $4' genes.gff
 - A final simple sanity check is that each feature has either 8 or 9 columns.
 
 ```bash
-# We do this using a special variable in awk, “NF”, which is the number of columns ina line. Remember to distinguish this from “$NF”, which referes specifically to the final column. This search will give no output if all features pass.
+# We do this using a special variable in awk, “NF”, which is the number of columns in a line. Remember to distinguish this from “$NF”, which referes specifically to the final column. This search will give no output if all features pass.
 $ awk -F"\t" 'NF<8 || NF>9' genes.gff
 
 ```
-
-
 ---
+
+
+
 ### Changing the output
 - In addition to filtering files, awk can be used to change the output.
 - Potentially, every value in a column can be changed to something else.
@@ -845,19 +868,20 @@ $ awk -F"\t" '{$2="new_source"; print $0}' genes.gff
 
 ```
 - This is close to what is required but, if you look closely at the output, you will notice that it is no longer tab separated.
-- To fix this, we need to use another special variable called “OFS” (output field separator).
+- To fix this, we need to use another special variable called "OFS" (output field separator).
 
 ```bash
-# This is achieved by adding “BEGIN{OFS="\t"}” to the code, as below. Before awk reads any lines of the file, it reads the BEGIN block of code, in this case, changing OFS to a tab character.
+# This is achieved by adding "BEGIN{OFS="\t"}" to the code, as below. Before awk reads any lines of the file, it reads the BEGIN block of code, in this case, changing OFS to a tab character.
 $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 
 ```
-
 ---
+
+
 ### Exercises
 1. Looking at the file grep/exercises.fasta, write a grep command to only output the sequence names.
      - How many sequences does this file contain?
-     - How many sequences contain unknown bases (denoted by “n” or “N”)?
+     - How many sequences contain unknown bases (denoted by "n" or "N")?
      - Do any sequences have the same name? You don’t need to find the repeated names, just how many names are repeated. Hint: You may need to look back at some earlier Unix commands.
 2. Looking at the files awk/exercises.bed, find the names of the contigs in the file.
      - How many contigs are there?
@@ -866,12 +890,12 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
      - How many genes are there?
      - How many genes have no strand assigned to them? (i.e. no final column)
      - How many genes have repeated names? You don’t need to find the names.
-
-
-
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
+
 ## Loops <a name="loops"></a>
 - It is common in bioinformatics to run the same analysis on many files.
 - Suppose we have a script which runs an analysis we wish to run on 100 data files.
@@ -880,7 +904,7 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 
 ```bash
 # We will use a for loop to run wc on the files in the directory loop_files/
-$ for filename in loop_files/*; do wc $filename; done
+$ for filename in loop_files/*; do wc ${filename}; done
 ```
 - Notice the syntax used.
      - The $ symbol denotes the variable used within the loop.
@@ -890,7 +914,7 @@ $ for filename in loop_files/*; do wc $filename; done
 ```bash
 # Next we will use a while read a file line-by-line, and only print lines for chromosome 1 and on the sense strand
 $ while read -r chr start end name strand; do \
-		if [[ $chr == “1” && $strand == “1” ]]; then \
+		if [[ $chr == "1" && $strand == "1" ]]; then \
 		echo $chr $start $end $name $strand; \
 		fi; \
 		done < loop_files/file.1
@@ -898,14 +922,16 @@ $ while read -r chr start end name strand; do \
 - let us break this while loop down:
      - “while read -r chr start end name strand” defines the columns that will be passed as variables to the next part of the command.
           - We could call these anything we like, but it make sense to given the names that relate to the data
-     - “< loop_files/file.1” is the input file that will be read line-by-line, and is passed into the command using the “<”.
-     - the while loop starts with the “do” and finishes with the “done”
+     - “< loop_files/file.1” is the input file that will be read line-by-line, and is passed into the command using the "<".
+     - the while loop starts with the "do" and finishes with the "done"
      - inside the while loop, there is the “if” command - if the conditions are TRUE, ie., the chr ==1 AND strand ==1, then we “echo” or print the data in the columns chr, start, end, name & strand. These were set as variables at the start of the while command
-     - The “if” command starts with “then”, and finishes with “fi”
-
-
-[↥ **Back to top**](#top)
+     - The "if" command starts with "then", and finishes with "fi".
 ---
+[↥ **Back to top**](#top)
+
+
+
+
 ## BASH scripts <a name="scripts"></a>
 - So far, we have run single commands in the terminal.
 - However, it is often useful to run multiple commands to process data and produce output.
@@ -934,12 +960,15 @@ $ gedit &
 $ ls hello.sh
 $ bash hello.sh
 ```
+---
 
 
 ### Setting up a generic directory for scripts
 - It would be useful to be able to run scripts we’ve written from anywhere on the filesystem without telling Unix where the script is or that it is a BASH script.
 - To tell Unix that a script is a BASH script, edit it so the first line reads
-“#!/usr/bin/env bash”.
+```bash
+#!/usr/bin/env bash
+```
 - Next we need to make the script executable. To do this, we use the Unix command chmod
 
 ```bash
@@ -984,6 +1013,8 @@ $ chmod +x myscript.sh
 
 ```
 - myscript.sh can now be edited using a text editor.
+---
+
 
 
 ### Getting command line options and adding output text
@@ -1014,7 +1045,7 @@ $ cat options_example2.sh
 ```
 - We have set the variable filename to be $1 and the variable number_of_lines to be $2.
 - This may seem unimportant with a simple script but, as you write more complex scripts or adapt them to particular datasets, you will realise that setting meaningful variable names saves a lot of time.
-
+---
 
 
 ### Exercises
@@ -1024,11 +1055,12 @@ $ cat options_example2.sh
      - An example input file is provided called bash_scripts/exercise_3.gff.
      - Use your imagination as to what you want to summarise.
      - You may want to look back at the awk section of the manual for inspiration.
-
-
-
-[↥ **Back to top**](#top)
 ---
+[↥ **Back to top**](#top)
+
+
+
+
 ## UNIX quick reference guide <a name="quick_ref"></a>
 
 **1. Looking at files and moving them around**
@@ -1046,6 +1078,7 @@ $ cat options_example2.sh
 | mv baz/foo .. | Move the foo directory into the parent directory |
 | rm -r ../foo | remove the directory called foo/ from the parent directory |
 | find foo/ -name "*.gff" | find all the files with a gff extension in the directory foo/ |
+---
 
 **2. Looking in files**
 
@@ -1059,7 +1092,7 @@ $ cat options_example2.sh
 | wc -l bar.bed | how many lines are there |
 | sort -k 2 -n bar.bed | sort by the second column in numerical order |
 | awk '{print $1}' bar.bed \| sort \| uniq | show the unique entries in the first column |
-
+---
 
 **3. Grep**
 
@@ -1072,6 +1105,7 @@ $ cat options_example2.sh
 | grep 'foo$' bar.bed | show me all of the lines ending in foo |
 | grep -i '^[acgt]$' bar.bed | show me all of the lines which only have the characters a,c,g and t (ignoring their case) |
 | grep -v foo bar.bed | don't show me any files with foo in them |
+---
 
 **4. awk**
 
@@ -1084,6 +1118,7 @@ $ cat options_example2.sh
 | awk -F"\t" '{print $(NF-1)}' bar.bed | print the penultimate column |
 | awk '{sum+=$2} END {print sum}' bar.bed | print the sum of the second column |
 | awk '/^foo/ {sum+=$2; count+=1} END {print sum/count}' bar.bed | print the average of the second value of lines starting with foo |
+---
 
 ** 5. piping, redirection and more advanced queries**
 ```bash
@@ -1117,6 +1152,7 @@ awk '(l<300 && $2>200000 && $3<250000) {l=($3-$2+1); print $0}' exercises.bed
 # contig-2 242625 243449 gene-68 46.5 +
 
 ```
+---
 
 **6. a script**
 ```bash
@@ -1164,6 +1200,7 @@ echo "The two files had the same number of contigs"
 exit
 fi
 ```
+---
 
 ** 7. Pro tips**
 - Always have a quick look at files with less or head to double check their format.
@@ -1173,6 +1210,8 @@ fi
 - If you did something smart but can't remember what it was, try typing history.
 - man the_name_of_a_command often gives you help.
 - **Google is an excellent resource.** Particularly prioritise results from stackoverflow.com, seqanswers.com and biostars.org.
+---
+
 
 **8.       build your commands slowly**
 If you wanted me to calculate the sum of all of the scores for genes on contig-1 in a bed file, it’s best to run each of the following commands before moving onto the next:
@@ -1202,6 +1241,7 @@ head -20 bar.bed | awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print
 awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
 
 ```
+---
 
 **9.        which tool should I use?**
 - You should probably use **awk** if:
@@ -1221,7 +1261,7 @@ awk '($1 == "contig-1" && $4 ~ /gene-/) {sum+=$5}; END {print sum}' bar.bed
      - you are doing something another person may wish to do.
      - you are doing something sensitive (e.g. deleting a lot of files).
      - you are doing some repeatedly.
-
+---
 [↥ **Back to top**](#top)
 
 
