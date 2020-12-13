@@ -84,6 +84,12 @@ and provide examples of how they can be used in bioinformatics analyses.
 ### Tips to get you started
 - read the text! They contain lots of hints that should help you to answer some of the questions
 - grey boxes contain instructions for running commands
+     - lines that start with a hash, ie "#" are a comment line - do not type these out.
+     - lines that start with the following symbols should be typed out
+          - "$" : this is a shell prompt
+          - ">" :  this is a R prompt
+               - note that you also see this on the shell prompt if you have not completed a command correctly
+          - ">>>" : this is the python prompt
 
 
 
