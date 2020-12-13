@@ -1028,10 +1028,13 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 | cat bar.bed | show me all of the lines (bad for big files) |
 | wc -l bar.bed | how many lines are there |
 | sort -k 2 -n bar.bed | sort by the second column in numerical order |
-| awk '{print $1}' bar.bed | sort | uniq | show the unique entries in the first column |
+| awk '{print $1}' bar.bed \| sort \| uniq | show the unique entries in the first column |
 
 
-3.        grep
-grep foo bar.bed # show me the lines in bar.bed with 'foo' in them
-grep foo baz/* # show me all examples of foo in the files immediately within baz/
-grep -r foo baz/ # show me all examples of foo in baz/ and every subdirectory within it
+3. Grep
+
+| command | what is it doing |
+| --- | --- |
+| grep foo bar.bed | show me the lines in bar.bed with 'foo' in them |
+| grep foo baz/* | show me all examples of foo in the files immediately within baz/ |
+| grep -r foo baz/ | show me all examples of foo in baz/ and every subdirectory within it |
