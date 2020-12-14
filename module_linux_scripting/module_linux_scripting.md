@@ -95,6 +95,7 @@ and provide examples of how they can be used in bioinformatics analyses.
                - note that you also see this on the shell prompt if you have not completed a command correctly   
           - '\>\>\>' : this is the python prompt  
                - you are not going to be using python here, but may choose to learn it in your own time as it is a very versatile programming language commonly used in bioinformatics
+     - note that you don't actually type out the command prompt symbol, i.e. ignore the "$" at the start of the line, just type out the command after it.
 
 ---
 [↥ **Back to top**](#top)
