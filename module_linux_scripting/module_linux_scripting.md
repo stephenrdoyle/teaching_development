@@ -171,7 +171,7 @@ $ ls –ltr
 
 ```
 
-- By using the *–l* option we can change the behaviour of the *ls* command. Instead of printing out a simple list, it will print out additional information about each file. There is a space between the command *ls* and the *–l* option. There is no space between the dash and the letter l.
+- By using the *–l* (lowercase L for "long") option we can change the behaviour of the *ls* command. Instead of printing out a simple list, it will print out additional information about each file. There is a space between the command *ls* and the *–l* option. There is no space between the dash and the letter l.
 
 ![](figures/04_ls_long.png)
 
