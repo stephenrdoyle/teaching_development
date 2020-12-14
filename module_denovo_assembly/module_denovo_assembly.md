@@ -15,7 +15,7 @@
 
 
 
-## Introduction & Aims <a name="intro"></a>
+## Introduction and Aims <a name="intro"></a>
 The aim of this practical class is to introduce you to some of the concepts involved in the assembly of a eukaryotic genome. The workflow that you will be using is not extensive, nor comprehensive, and like many bioinformatic tasks, there are many tools that do a similar job. However, this workflow should give you an overview of how to perform a genome assembly, and identify some of the ways to assess (and maybe improve) the quality of your genome assembly.
 
 The data you will be working with in this tutorial comes from a species of parasitic blood fluke named *Schistosoma mansoni*. This parasite causes a disease called schistosomiasis that affects approximately 200 million people who reside in Africa, the Middle East, the Caribbean, Brazil, Venezuela and Suriname. The lifecycle of the parasite is shown in Figure 1, which illustrates two main life history stages: (1) the maturation into adulthood and sexual reproduction in the mammalian host (here a human), and (2) clonal reproduction and transmissible stage in an intermediate host (typically a snail), and in the lakes and streams in which the snail resides. The DNA for sequencing was derived from a maintained laboratory line of *S. mansoni* at the Wellcome Sanger Institute, in which the mammalian host is a mouse in the maintenance of the life cycle.
@@ -45,7 +45,7 @@ To assemble the 47 Mb chromosome IV, we will use the following workflow and demo
 - Step 5: Further exploration of your genome assemblies
 	- Tools used: Bandage, Nucmer, Genome Ribbon
 
-```shell
+```bash
 # your first command – move to the working directory to get started!
 
 cd /home/manager/Module_4_Assembly
@@ -100,7 +100,7 @@ Kraken works by aligning kmers from your DNA sequence against known kmer frequen
 
 - view the Kraken report to determine if there are any contaminants
 
-```shell
+```bash
 # go to the working directory
 
 cd /home/manager/Module_4_Assembly/step_1  
@@ -183,7 +183,7 @@ You can explore some examples of kmer spectra and genome size estimates on the G
 
 - Upload your kmer count data to GenomeScope and estimate the genome size
 
-```shell
+```bash
 # go to the working directory
 
 cd /home/manager/Module_4_Assembly/step_2  
@@ -250,7 +250,7 @@ The process of error correction does take a substantial amount of time and compu
 
 - Determine the assembly statistics of each genome assembly
 
-```shell
+```bash
 # go to the working directory
 
 cd /home/manager/Module_4_Assembly/step_3  
@@ -287,7 +287,7 @@ Once you have your assemblies, you will probably want to know how well they have
 
 Table 1 below outlines the data we will generate about each assembly. Each is relatively self-explanatory, however, you may not have been introduced to N50 and N50(n). These statistics are a measure of how contiguous a genome assembly is. Imagine if your assembly is sorted by sequence length, ie., longest to shortest; your N50 is defined as the sequence length at which 50% of the entire assembly is contained in contigs or scaffolds equal to or larger than this contig. It is essentially the midpoint of the assembly. The N50(n) is simply the contig number in which the N50 base is found. More contiguous assemblies will have a higher N50 (and lower N50(n)), whereas more fragmented assemblies will show the opposite trend. Note that you can artificially increase N50 by randomly joining sequences together, and therefore, misassembly or overassembly can inflate N50 values. It is important to not completely rely of N50 as absolute truth and to perform other assembly validations if possible.
 
-```shell
+```bash
 # calculate the assembly statistics for all three assemblies, and complete Table 1 below.
 
 assembly-stats PB_SM_V7_chr4.contigs.fasta
@@ -330,7 +330,7 @@ There are a number of ways to compare genomes. We will be using nucmer to do the
 
 - Compare the base level statistics for each comparison (these are the colour plots)
 
-```shell
+```bash
 # go to the working directory
 
 cd /home/manager/Module_4_Assembly/step_4  
@@ -404,7 +404,7 @@ We will use the tool Bandage (https://rrwick.github.io/Bandage/) to visualise th
 - compare your new sequence against the reference
 
 
-```shell
+```bash
 # go to the working directory
 
 cd /home/manager/Module_4_Assembly/step_5  
@@ -424,7 +424,7 @@ The genome graph is sorted by size, with the largest sequence(s) in the top left
 
 Explore the genome graph, zooming into some of the groups of sequences. Some consist of a single node, i.e., a single contig sequence, with no relationships to other sequences, whereas other are more complex, in which larger nodes may be connected by two or more alternate nodes.
 
-```shell
+```bash
 # Once finished, load the Illumina (SPADES) graph (made during the Illumina assembly) into Bandage, and compare.
 
 Bandage load SM_V7_chr4.spades.gfa
@@ -453,7 +453,7 @@ Move to the top left hand corner containing the largest collection of sequences,
 Lets perform a basic improvement to our Pacbio miniasm assembly, by trying to use the graph information to string multiple nodes (sequences) together to produce a longer sequence.
 - Reopen the Pacbio miniasm graph as you have done so previously.
 
-```shell
+```bash
 # make sure you are still in the correct working directory
 
 cd /home/manager/Module_4_Assembly/step_5  
@@ -475,7 +475,7 @@ Bandage load SM_V7_chr4.miniasm.gfa
 Lets now compare your new sequence back against the reference to see how you have done.
 - Use nucmer to compare the reference sequence and your new path_sequence
 
-```shell
+```bash
 # Compare your new sequence with the reference using nucmer and show-coords
 
 nucmer -maxmatch SM_V7_chr4.fa path_sequence.fasta
