@@ -1,4 +1,4 @@
-# Module - De novo assembly
+# Module - *De novo* assembly
 
 
 ## Table of contents
@@ -94,11 +94,9 @@ The second tool to assess the quality of your raw data is **Kraken** (https://cc
 Kraken works by aligning kmers from your DNA sequence against known kmer frequency data for different species in a kraken database. It will therefore only assign species that it knows, else, it calls the sequence “unclassified”. Most kraken databases contain comprehensive bacterial and viral species lists, however, it may also contain human and mouse profiles. Kraken databases can be customised to include any species with DNA sequence available. Therefore, if you are investigating one of the species in the kraken database, running kraken will given you a good estimate of the amount of reads specifically from that species. If your species is not in the database, then you would expect most if not all reads to fall into the “unclassified” category. Either way, this approach can serve as an effective screen for contaminants in your sequencing reads.
 
 ### Tasks
-- run fastqc
-
-- visualise output of FastQC using MultiQC and check sequence quality
-
-- view the Kraken report to determine if there are any contaminants
+1. run fastqc
+2. visualise output of FastQC using MultiQC and check sequence quality
+3. view the Kraken report to determine if there are any contaminants
 
 ```bash
 # go to the working directory
@@ -143,11 +141,10 @@ The output of kraken-report is tab-delimited, with one line per taxon. The fie
 
 
 ### Questions
-- FastQC / MultiQC output
+1. FastQC / MultiQC output
 	- What are the similarities / differences between read 1 and read 2?
 	- Are the base quality and nucleotide frequency distributions relatively level, or 	are they uneven?
-
-- Kraken
+2. Kraken
 	- What proportion of the reads are “unclassified”, and therefore potentially *S. mansoni* reads?
 	- What looks to be the main contaminant? Why might this be so?
 
@@ -179,9 +176,8 @@ You can explore some examples of kmer spectra and genome size estimates on the G
 
 ### Tasks
 
-- Run jellyfish on your raw sequencing data
-
-- Upload your kmer count data to GenomeScope and estimate the genome size
+1. Run jellyfish on your raw sequencing data
+2. Upload your kmer count data to GenomeScope and estimate the genome size
 
 ```bash
 # go to the working directory
@@ -208,11 +204,9 @@ jellyfish histo -t 4 reads.jf > reads.histo
 
 
 ### Questions
-- what is my predicted genome / chromosome size?
-
-- how does it compare to the expected size?
-
-- what does changing the kmer length do?
+1. what is my predicted genome / chromosome size?
+2. how does it compare to the expected size?
+3. what does changing the kmer length do?
 
 ---
 [↥ **Back to top**](#top)
@@ -223,7 +217,7 @@ jellyfish histo -t 4 reads.jf > reads.histo
 
 ## Step 3: Performing a genome assembly using either Illumina short read or Pacbio long read data <a name="step3"></a>
 
-Now that you have performed some QC on your raw data and estimated your genome size, it is now time to perform a genome assembly. There are a huge number of tools dedicated to genome assembly; OMICS tools describes 163 dedicated for de novo genome assembly (https://omictools.com/genome-assembly-category), however, there are likely others. Furthermore, there are likely to be at least as many tools that value-add to a genome assembly, including but not limited to scaffolders, circularisers, gap closers etc. The choice of assembler and subsequent add-ons is dependent on the type of data available, type of organism, i.e., haploid, diploid etc, genome size, and complexity of the task among other variables.  
+Now that you have performed some QC on your raw data and estimated your genome size, it is now time to perform a genome assembly. There are a huge number of tools dedicated to genome assembly; OMICS tools describes 163 dedicated for *de novo* genome assembly (https://omictools.com/genome-assembly-category), however, there are likely others. Furthermore, there are likely to be at least as many tools that value-add to a genome assembly, including but not limited to scaffolders, circularisers, gap closers etc. The choice of assembler and subsequent add-ons is dependent on the type of data available, type of organism, i.e., haploid, diploid etc, genome size, and complexity of the task among other variables.  
 
 The aim of this practical is not to assess these tools or promote any particular tool(s) in any meaningful way, but to compare and contrast two technologies commonly used in genome assembly: Illumina short-read and Pacbio long read.
 
@@ -243,12 +237,10 @@ The process of error correction does take a substantial amount of time and compu
 
 ### Tasks
 
-- Run the Miniasm command to generate your first Pacbio assembly of Chromosome IV
-
-- The Canu and Spades assemblies have been provided for you
+1. Run the Miniasm command to generate your first Pacbio assembly of Chromosome IV
+2. The Canu and Spades assemblies have been provided for you
      – it would take too long to run these here – however, we have provided the commands for your reference
-
-- Determine the assembly statistics of each genome assembly
+3. Determine the assembly statistics of each genome assembly
 
 ```bash
 # go to the working directory
@@ -304,11 +296,9 @@ assembly-stats SPADES_SM_V7_chr4.consensus_contigs.fasta
 
 ### Questions
 
-- how do my assemblies compare to the expected size of chomosome IV?
-
-- what is the impact of long reads versus short reads on assembly contiguity?
-
-- how did the uncorrected (Minimap/miniasm) assembly compare to the corrected Canu assembly?
+1. how do my assemblies compare to the expected size of chomosome IV?
+2. what is the impact of long reads versus short reads on assembly contiguity?
+3. how did the uncorrected (Minimap/miniasm) assembly compare to the corrected Canu assembly?
 
 ---
 [↥ **Back to top**](#top)
@@ -319,16 +309,15 @@ assembly-stats SPADES_SM_V7_chr4.consensus_contigs.fasta
 
 ## Step 4: Comparison of your assemblies against the known reference sequence <a name="step4"></a>
 
-Now that we have three independent genome assemblies, we would like to see how they compare to the reference chromosome IV sequence. This is only possible because we already have a reference sequence, however, if you have a closely related species with a more contiguous reference, it might be worth trying. If you do not have a good reference to compare against, you could simply compare different versions of the de novo assembly to see how they compare (we would like you to do this if you have time).
+Now that we have three independent genome assemblies, we would like to see how they compare to the reference chromosome IV sequence. This is only possible because we already have a reference sequence, however, if you have a closely related species with a more contiguous reference, it might be worth trying. If you do not have a good reference to compare against, you could simply compare different versions of the *de novo* assembly to see how they compare (we would like you to do this if you have time).
 There are a number of ways to compare genomes. We will be using nucmer to do the DNA vs DNA sequence comparison, and the web application Assemblytics (http://assemblytics.com/) to visualise the comparison. Assemblytics is a nice way to visualise this comparison, as it not only allows a “zoomed” out view of how the genomes compare (via the Interactive dot plot), but it also provides base-level and small structural variant statistics. These can be informative particular when comparing different sequencing technologies, ie., Illumina versus Pacbio, and may reveal inherent biases in each.
 
 
 ### Tasks
-- Run nucmer of each of the three comparisons, ie. Ref vs PB, ref vs miniasm, ref vs illumina
 
-- Explore each of the interactive dotplots
-
-- Compare the base level statistics for each comparison (these are the colour plots)
+1. Run nucmer of each of the three comparisons, ie. Ref vs PB, ref vs miniasm, ref vs illumina
+2. Explore each of the interactive dotplots
+3. Compare the base level statistics for each comparison (these are the colour plots)
 
 ```bash
 # go to the working directory
@@ -370,13 +359,11 @@ To help you visualise and interpret the interactive dot plot, we have provided s
 
 
 ### Questions
-- how does each assembly compare against the reference?
 
-- particularly in the ref vs PB dot plot comparison, what sequence features are found and sequence ends, and why might they be there?
-
-- are there base level characteristics found in one assembly but not the other? Is there anything specific to the Pacbio assembly but not Illumina assembly, and vice versa?
-
-- what sequence features define the uncorrected Miniasm in particular?
+1. how does each assembly compare against the reference?
+2. particularly in the ref vs PB dot plot comparison, what sequence features are found and sequence ends, and why might they be there?
+3. are there base level characteristics found in one assembly but not the other? Is there anything specific to the Pacbio assembly but not Illumina assembly, and vice versa?
+4. what sequence features define the uncorrected Miniasm in particular?
 
 ---
 [↥ **Back to top**](#top)
@@ -397,11 +384,9 @@ We will use the tool Bandage (https://rrwick.github.io/Bandage/) to visualise th
 
 ### Tasks
 
-- visualise and compare the Pacbio miniasm and Illumina Spades genome graphs
-
-- using the Pacbio miniasm graph, construct a path through the graph, making a new sequence
-
-- compare your new sequence against the reference
+1. visualise and compare the Pacbio miniasm and Illumina Spades genome graphs
+2. using the Pacbio miniasm graph, construct a path through the graph, making a new sequence
+3. compare your new sequence against the reference
 
 
 ```bash
@@ -495,11 +480,10 @@ show-coords -lTH -L10000 out.delta  > out.coords
 
 
 ### Questions
-- what are the main differences between the Pacbio and Illumina genome graphs?
 
-- what is the length of your new sequence?
-
-- how did your new sequence compare to the reference? Was it syntenic?
+1. what are the main differences between the Pacbio and Illumina genome graphs?
+2. what is the length of your new sequence?
+3. how did your new sequence compare to the reference? Was it syntenic?
 
 ---
 [↥ **Back to top**](#top)
