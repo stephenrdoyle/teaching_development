@@ -2,7 +2,7 @@
 
 
 ## Table of contents
-1. [Introduction & Aims](#introduction)
+1. [Introduction and aims](#intro)
 2. [Step 1: Raw read QC](#step1)
 3. [Step 2: Estimating genome size from raw data](#step2)
 4. [Step 3: Genome assembly ](#step3)
@@ -15,7 +15,7 @@
 
 
 
-## Introduction & Aims <a name="introduction"></a>
+## Introduction & Aims <a name="intro"></a>
 The aim of this practical class is to introduce you to some of the concepts involved in the assembly of a eukaryotic genome. The workflow that you will be using is not extensive, nor comprehensive, and like many bioinformatic tasks, there are many tools that do a similar job. However, this workflow should give you an overview of how to perform a genome assembly, and identify some of the ways to assess (and maybe improve) the quality of your genome assembly.
 
 The data you will be working with in this tutorial comes from a species of parasitic blood fluke named *Schistosoma mansoni*. This parasite causes a disease called schistosomiasis that affects approximately 200 million people who reside in Africa, the Middle East, the Caribbean, Brazil, Venezuela and Suriname. The lifecycle of the parasite is shown in Figure 1, which illustrates two main life history stages: (1) the maturation into adulthood and sexual reproduction in the mammalian host (here a human), and (2) clonal reproduction and transmissible stage in an intermediate host (typically a snail), and in the lakes and streams in which the snail resides. The DNA for sequencing was derived from a maintained laboratory line of *S. mansoni* at the Wellcome Sanger Institute, in which the mammalian host is a mouse in the maintenance of the life cycle.
