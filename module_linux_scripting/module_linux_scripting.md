@@ -2,7 +2,7 @@
 
 
 ## Table of Contents
-1. [Overview and aims](#overview)
+1. [Introduction and aims](#intro)
 2. [Getting started on the command line - Basic unix](#getting_started)
 3. [Files and directories](#files_directories)
 4. [Looking inside files](#inside_files)
@@ -15,7 +15,7 @@
 ---
 
 
-## Overview and Aims <a name="overview"></a>
+## Introduction and Aims <a name="intro"></a>
 
 ### Introducing Linux
 Unix is the standard operating system on most large computer systems in scientific research, in the same way that Microsoft Windows is the dominant operating system on desktop PCs.
