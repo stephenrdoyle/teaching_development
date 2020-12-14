@@ -45,7 +45,7 @@ and provide examples of how they can be used in bioinformatics analyses.
 ### General points to consider
 - Linux is pretty straightforward, but there are some general points to remember that will make your life easier:
      - Linux is case sensitive - typing *"ls"* is not the same as typing *"LS"*.
-     - You need to put a space between a command and its argument - for example, *"more myfile"* will show you the contents of the file called myfile; *"moremyfile"* will just give you an error!
+     - You need to put a space between a command and its argument - for example, *"more myfile"* will show you the contents of the file called *myfile*; *"moremyfile"* will just give you an error!
      - Linux is not psychic! If you misspell the name of a command or the name of a file, it will not understand you.
      - Many of the commands are only a few letters long; this can be confusing until you start to think logically about why those letters were chosen
           - ls for list, rm for remove and so on.
@@ -86,7 +86,7 @@ and provide examples of how they can be used in bioinformatics analyses.
 ### Tips to get you started
 - read the text! It contain lots of hints that should help you to answer some of the questions
 - grey boxes contain instructions for running commands
-     - lines that start with a hash, ie "#" are a comment line - do not type these out.
+     - lines that start with a hash, ie *"#"* are a comment line - do not type these out.
      - lines that start with the following symbols should be typed out. Different programming languages have different symbols,
           - '\$' : this is a shell prompt
                - everything performed in this module is using the shell prompt
@@ -171,7 +171,7 @@ $ ls –ltr
 
 ```
 
-- By using the –l option we can change the behaviour of the ls command. Instead of printing out a simple list, it will print out additional information about each file. There is a space between the command ls and the –l option. There is no space between the dash and the letter l.
+- By using the *–l* option we can change the behaviour of the *ls* command. Instead of printing out a simple list, it will print out additional information about each file. There is a space between the command *ls* and the *–l* option. There is no space between the dash and the letter l.
 
 ![](figures/04_ls_long.png)
 
@@ -204,16 +204,16 @@ $ ls –ltr
 
 ![](figures/05_directories.png)
 
-- Therefore, if there is a file called genome.seq in the dna directory its location or full pathname can be expressed as /nfs/dna/genome.seq.
+- Therefore, if there is a file called *genome.seq* in the dna directory its location or full pathname can be expressed as */nfs/dna/genome.seq*.
 
 ---
 
 
 
 ### pwd - find where you are
-- The command pwd stands for print working directory.
+- The command *pwd* stands for print working directory.
 - A command (also known as a program) is something which tells the computer to do something. Commands are therefore often the first thing that you type into the terminal (although we'll show you some advanced exceptions to this rule later).
-- As described above, directories are arranged in a hierarchical structure. To determine where you are in the hierarchy you can use the pwd command to display the name of the current working directory. The current working directory may be thought of as the directory you are in, i.e. your current position in the file-system tree.
+- As described above, directories are arranged in a hierarchical structure. To determine where you are in the hierarchy you can use the *pwd* command to display the name of the current working directory. The current working directory may be thought of as the directory you are in, i.e. your current position in the file-system tree.
 
 ```bash
 # To find out where you are, type this into your terminal.
@@ -224,8 +224,8 @@ $ cd basic
 $ pwd
 
 ```
-- Remember that Unix is case sensitive, **PWD** is not the same as **pwd**.
-- pwd will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
+- Remember that Unix is case sensitive, *PWD* is not the same as *pwd*.
+- *pwd* will list each of the folders you would need to navigate through to get from the root of the file system to your current directory.
      - This is sometimes referred to as your 'absolute path' to distinguish that it gives a complete route rather than a 'relative path' which tells you how to get from one folder to another.
      - More on that shortly ...
 
@@ -233,8 +233,8 @@ $ pwd
 
 
 ### cd - change current working directory
-- The command "cd" stands for change directory.
-- The cd command will change the current working directory to another, in other words allow you to move up or down in the directory hierarchy.
+- The command *cd* stands for change directory.
+- The *cd* command will change the current working directory to another, in other words allow you to move up or down in the directory hierarchy.
 - To move into the genome_1 directory , complete the following:
      - Note, you'll remember this more easily if you type this into the terminal rather copying and pasting.
      - Also remember that you can use tab completion to save typing all of it.
@@ -278,7 +278,7 @@ $ ls ~
 ### Tab completion - *"make tab-it and hab-it"*
 - Typing out file names is really boring and you're likely to make typos which will at best make your command fail with a strange error and at worst overwrite some of your carefully crafted analysis.
      - **Tab completion is a trick which normally reduces this risk significantly.**
-- Instead of typing out **ls genome_2/**, try typing **ls g** and then press the tab character (instead of Enter).
+- Instead of typing out *ls genome_2/*, try typing *ls g* and then press the tab character (instead of Enter).
      - Most of the rest of the folder name should just appear.
      - As you have two folders with similar names, you will need to give your terminal a bit of a hand to work out which one you want.
 - Pressing the tab key twice will try and autocomplete what you’ve started typing or give you a list of all possible completions.
@@ -289,8 +289,8 @@ $ ls ~
 
 
 ### cp - copy a file
-- The command cp stands for copy.
-- The cp command will copy a file from one location to another and you will end up with two copies of the file.
+- The command *cp* stands for copy.
+- The *cp* command will copy a file from one location to another and you will end up with two copies of the file.
 
 ```bash
 # To copy the file genome_1.gff to a new file called genome_1.withseq use:
@@ -305,8 +305,8 @@ $ ls -lrt
 
 
 ### mv - move a file
-- The mv command stand for move.
-- The mv command will move a file from one location to another. This moves the file rather than copies it, therefore you end up with only one file rather than two.
+- The *mv* command stand for move.
+- The *mv* command will move a file from one location to another. This moves the file rather than copies it, therefore you end up with only one file rather than two.
 - When using the command, the path or pathname is used to tell Unix where to find the file.
 - You refer to files in other directories by using the list of hierarchical names separated by slashes.
      - For example, the file called bases in the directory genome has the path genome/bases.
@@ -330,8 +330,8 @@ $ ls -lrt
 
 
 ### rm - delete a file
-- The command rm stands for remove.
-- The rm command will delete a file permanently from your computer so take care!
+- The command *rm* stands for remove.
+- The *rm* command will delete a file permanently from your computer so take care!
 
 ```bash
 # To remove the copy of the genome_1 gff file, called genome_1.withseq.gff use:
@@ -375,7 +375,7 @@ $ ls -lrt
 
 
 ### less
-- The less command displays the contents of a specified file one screen at a time.
+- The *less* command displays the contents of a specified file one screen at a time.
 - To test this command, open a terminal window on the computer, navigate to the directory files in the Unix_course directory and type the following command followed by the enter key:
 
 ```bash
@@ -394,7 +394,7 @@ $ less genome_1.gff
 
 ### head and tail
 - Sometimes you may just want to view the text at the beginning or the end of a file, without having to display all of the file.
-     - The head and tail commands can be used to do this.
+     - The *head* and *tail* commands can be used to do this.
 - The head command displays the first ten lines of a file.
 
 ```bash
@@ -409,7 +409,7 @@ $ tail genome_1.gff
 ![](figures/07_tail_command.png)
 
 - The amount of the file that is displayed can be increased by adding extra arguments.
-     - To increase the number of lines viewed from 10 to 25 add -n 25 to the command:
+     - To increase the number of lines viewed from 10 to 25 add *-n 25* to the command:
 
 ```bash
 # To look at the last 25 lines of genome_1.gff use:
@@ -417,7 +417,7 @@ $ tail –n 25 genome_1.gff
 ```
 - In this case you've given tail an argument in two parts.
      - the -n says that you want to specify the number of lines to show and the 25 bit tells it how many.
-- Unlike earlier when we merged arguments like ls -lha together, it's not a good idea to merge multiple two part arguments together because otherwise it is ambiguous which value goes with which argument.
+- Unlike earlier when we merged arguments like *ls -lha* together, it's not a good idea to merge multiple two part arguments together because otherwise it is ambiguous which value goes with which argument.
      - -n is such a common argument for tail and head that it even has a shorthand: -n 25 and -25 mean the same thing.
 
 ---
@@ -426,7 +426,7 @@ $ tail –n 25 genome_1.gff
 
 ### Saving time
 - Saving time while typing may not seem important, but the longer that you spend in front of a computer, the happier you will be if you can reduce the time you spend at the keyboard.
-- ressing the up/down arrows will let you scroll through previous commands entered.
+- pressing the up/down arrows will let you scroll through previous commands entered.
 - If you highlight some text, middle clicking on the mouse will paste it on the command line.
 - Tab completion doesn't just work on filenames, it also works on commands.
      - Try it by typing fin and pressing tab...
@@ -437,9 +437,10 @@ $ tail –n 25 genome_1.gff
 
 
 
-### Getting help – man , -h , --help
+### Getting help: man , -h , --help
 - There are a number of different ways you can be help with a command. Not all of these work for each command you will encounter, however, they are worth knowing and using to learn about new tools, and troubleshoot using commands that may not initially work for you.
-- For example, to get help using the tail command, we could use one of the following:
+- For example, to get help using the *tail* command, we could use one of the following:
+
 ```bash
 # I’m stuck – help!
 $ man tail
@@ -448,10 +449,10 @@ $ tail –h
 Or
 $ tail --help
 ```
-- The prefix man will typically give extensive detail about the command and its options, whereas –h and --help tend to give an abbreviated version.
+- The prefix *man* will typically give extensive detail about the command and its options, whereas *–h* and *--help* tend to give an abbreviated version.
 - IMPORTANTLY, each will give an example command, or usage statement.
 
-- There are several other useful commands that can be used to manipulate and summarise information inside files and we will introduce some of these next, cat, sort, wc and uniq.
+- There are several other useful commands that can be used to manipulate and summarise information inside files and we will introduce some of these next, *cat, sort, wc* and *uniq*.
 
 ---
 
@@ -466,15 +467,15 @@ $ head -1 genome_1.gff > first_genome_1_line.txt
 
 ```
 - It's likely that nothing obvious will have happened….
-- This is because the > character has redirected the output of the head command. Instead of writing to the standard output (your terminal) it sent the output into the file first_genome_1_line.txt.
-- Note that tab completion works for genome_1.gff because it exists but doesn't work for first_genome_1_line.txt because it doesn't exist yet.
+- This is because the *">"* character has redirected the output of the head command. Instead of writing to the standard output (your terminal) it sent the output into the file *first_genome_1_line.txt*.
+- Note that tab completion works for *genome_1.gff* because it exists but doesn't work for *first_genome_1_line.txt* because it doesn't exist yet.
 
 ---
 
 
 
 ### cat
-- cat is another way of reading files, but unlike less it just throws the entire contents of the file onto your standard output. Try it on first_genome_1_line.txt
+- *cat* is another way of reading files, but unlike less it just throws the entire contents of the file onto your standard output. Try it on *first_genome_1_line.txt*.
 
 ```bash
 # Read you new file using the cat command
@@ -484,9 +485,9 @@ $ cat first_genome_1_line.txt
 rm first_genome_1_line.txt
 
 ```
-- The command cat can be used to join two or more files into a single file. The order in which the files are joined is determined by the order in which they appear in the command line. You can use cat and the > symbol to join files together.
-- Having looked at the beginning and end of the genome_1.gff file you should notice that in the GFF file the annotation comes first, then the DNA sequence at the end.
-- We can recreate this file by using cat to join two separate files, genome_1.noseq.gff and genome_1.fa, that contain the annotation and DNA sequence, respectively for genome_1. To join together these files use:
+- The command *cat* can be used to join two or more files into a single file. The order in which the files are joined is determined by the order in which they appear in the command line. You can use *cat* and the *">"* symbol to join files together.
+- Having looked at the beginning and end of the *genome_1.gff* file you should notice that in the GFF file the annotation comes first, then the DNA sequence at the end.
+- We can recreate this file by using cat to join two separate files, *genome_1.noseq.gff* and *genome_1.fa*, that contain the annotation and DNA sequence, respectively for genome_1. To join together these files use:
 
 ```bash
 # Join the two files using the cat command
@@ -502,7 +503,7 @@ $ ls -lrt
 
 
 ### wc - counting
-- The command wc counts lines (-l), words (-w) or characters (-c).
+- The command *wc* counts lines (-l), words (-w) or characters (-c).
 - There are two ways you could use it:
 
 ```bash
@@ -515,9 +516,9 @@ $ cat genome_1.gff | wc -l
 ```
 
 - Did you get the same answer?
-- In the first example, you tell wc the file that you want it to review (genome_1.gff) and pass the -l option to say that you're only interested in the number of lines.
-- In the second example you use the \| symbol which is also known as the pipe symbol. This pipes the output of cat genome_1.gff into the input of wc -l.
-     - This means that you can also use the same wc tool to count other things.
+- In the first example, you tell *wc* the file that you want it to review (i.e. *genome_1.gff*) and pass the -l option to say that you're only interested in the number of lines.
+- In the second example you use the \| symbol which is also known as the pipe symbol. This pipes the output of *cat genome_1.gff* into the input of *wc -l*.
+     - This means that you can also use the same *wc* tool to count other things.
 
 ```bash
 # For example to count the number of files that are listed by ls use:
@@ -534,8 +535,8 @@ $ ls | grep ".gff" | wc -l
 
 
 ### sort - sorting values
-- The sort command lets you sort the contents of the input.
-- When you sort the input, lines with identical content end up next to each other in the output. This is useful as the output can then be fed to the uniq command (see below) to count the number of unique lines in the input.
+- The *sort* command lets you sort the contents of the input.
+- When you sort the input, lines with identical content end up next to each other in the output. This is useful as the output can then be fed to the *uniq* command (see below) to count the number of unique lines in the input.
 
 ```bash
 # For example, to sort the contents of a BED file use:
@@ -547,7 +548,7 @@ $ sort genome_2.bed | tail
 # To sort the contents of a BED file on position, type the following command.
 $ sort -k 2 -n genome_2.bed
 ```
-- The sort command can sort by multiple columns e.g. 1st column and then 2nd column by specifying successive -k parameters in the command.
+- The *sort* command can sort by multiple columns e.g. 1st column and then 2nd column by specifying successive -k parameters in the command.
 - Why not have a look at the manual for sort to see what these options do?
      - Remember that you can type / followed by a search phrase, n to find the next search hit, N to find the previous search hit and q to exit.
 
@@ -556,8 +557,8 @@ $ sort -k 2 -n genome_2.bed
 
 
 ### uniq - finding unique values
-- The uniq command extracts unique lines from the input.
-- It is usually used in combination with sort to count unique values in the input.
+- The *uniq* command extracts unique lines from the input.
+- It is usually used in combination with *sort* to count unique values in the input.
 
 ```bash
 # To get the list of chromosomes in the genome_2 bed file use:
@@ -565,8 +566,8 @@ $ awk '{ print $1 }' genome_2.bed | sort | uniq
 
 ```
 - How many chromosomes are there?
-     - You will learn more about the awk command later in this course.
-- Warning: uniq is really stupid; it can only spot that two lines are the same if they are right next to one another. Your therefore almost always want to sort your input data before using uniq.
+     - You will learn more about the *awk* command later in this course.
+- Warning: *uniq* is really stupid; it can only spot that two lines are the same if they are right next to one another. Your therefore almost always want to sort your input data before using *uniq*.
 
 - Do you understand how this command is working? Why not try building it up piece by piece to see what it does?
 
@@ -596,7 +597,7 @@ $ awk '{ print $1 }' genome_2.bed | sort | uniq | less
 
 ## Searching the content of files using grep <a name="grep"></a>
 - A common task is extraction of information from a large file or many large files.
-- This is achieved using the Unix command grep. This stands for “Globally search for a Regular Expression and Print”.
+- This is achieved using the Unix command *grep*. This stands for “Globally search for a Regular Expression and Print”.
 
 ```bash
 # First we need to go to the correct directory
@@ -635,14 +636,14 @@ $ grep chr2 gene_expression.bed
 $ grep chr2 gene_expression.bed | grep +
 
 ```
-- As grep reports matches to a string anywhere on a line, such simple searches can have undesired consequences.
+- As *grep* reports matches to a string anywhere on a line, such simple searches can have undesired consequences.
 
 ```bash
 # We will modify our original search slightly to find all data on chromosome 1
 $ grep chr1 gene_expression.bed
 
 ```
-- You should notice that, in addition to lines from chromosome 1, grep reports lines from chromosome 10 also.
+- You should notice that, in addition to lines from chromosome 1, *grep* reports lines from chromosome 10 also.
 - Similarly, annotations can be inconsistent, leading to further problems with simple searches.
 
 ```bash
@@ -657,7 +658,7 @@ $ cat gene_expression_sneaky.bed
 $ grep chr1 gene_expression_sneaky.bed | grep “-”
 
 ```
-- You will notice that grep reports several lines form genes which aren’t on chromosome 1.  
+- You will notice that *grep* reports several lines form genes which aren’t on chromosome 1.  
      - This is because each of them contains the text “chr1” and the text “-” somewhere.
 - We need a way to refine our searches further.
 
@@ -668,7 +669,7 @@ $ grep chr1 gene_expression_sneaky.bed | grep “-”
 ### Regular expressions
 - Regular expressions provide a way of defining more specific patterns to match.
 - We will concentrate on some of the most useful and commonly used regular expressions.
-- Firstly, we can specify a match only to text at the start of a line using the ^ (carat) symbol.
+- Firstly, we can specify a match only to text at the start of a line using the *"^"* (carat) symbol.
 
 ```bash
 # Repeat the first part of our search but including ^. Note, to be safe, we will put the search term in quotes.
@@ -700,14 +701,14 @@ $ grep $‘^chr1\t’ gene_expression_sneaky.bed | grep ‘\-$’
 
 ### Useful grep command line options
 - A common requirement is to count the number of matches to a search term.
-- This could be done by piping the output of grep into wc -l but can be done more succinctly using grep’s -c option.
+- This could be done by piping the output of *grep* into *wc -l*, but can be done more succinctly using *grep -c* (c = count) option.
 
 ```bash
 # We will repeat a previous search but include the -c option to count matches rather than just returning them.
 $ grep -c  $‘^chr1\t’ gene_expression_sneaky.bed
 
 ```
-- Another common requirement is to make searches case insensitive. By default, grep is case sensitive so grepping for ‘acgt’ will not return hits to ‘ACGT’.
+- Another common requirement is to make searches case insensitive. By default, *grep* is case sensitive so grepping for ‘acgt’ will not return hits to ‘ACGT’.
 
 ```bash
 # Consider the fasta file sequences.fasta.
@@ -723,7 +724,7 @@ $ grep ACGT sequences.fasta
 $ grep -i ACGT sequences.fasta
 
 ```
-- Another commonly used requirement from grep is to find the reverse of a match. i.e. return all lines which do not match the search term.
+- Another commonly used requirement from *grep* is to find the reverse of a match, i.e. return all lines which *do not* match the search term.
 
 ```bash
 # The -v option does this
@@ -736,14 +737,14 @@ $ grep -v $‘^chr1\t’ gene_expression_sneaky.bed
 
 
 ### Replacing matches to regular expressions
-- In Unix, it is possible to replace every match to a character string or regular expression with something else using the command sed. This stands for “stream editor”.
+- In Unix, it is possible to replace every match to a character string or regular expression with something else using the command *sed*. This stands for “stream editor”.
 
 ```bash
 # As an example, we wish to replace each incidence of the characters ‘chr’ at the beginning of the line in gene_expression.bed with ‘chromosome
 $ sed ‘s/^chr/chromosome/’ gene_expression.bed
 
 ```
-- Note: this will output to the terminal window. The output can be redirected to a new file using the > character.
+- Note: this will output to the terminal window. The output can be redirected to a new file using the *">"* character.
 
 ```bash
 # For example:
@@ -759,16 +760,16 @@ $ sed ‘s/^chr/chromosome/’ gene_expression.bed > gene_expression_new.bed
 
 
 ## Processing columns with awk <a name="awk"></a>
-- awk is a programming language named after its three inventors: Alfred Aho, Peter Weinberger and Brian Kernighan.
-- awk is powerful at processing files, particularly column based files, which are commonplace in bioinformatics e.g. BED, GFF and SAM files.
-- Although complex programs can be written in awk, we will use it directly on the command line.
+- *awk* is a programming language named after its three inventors: Alfred Aho, Peter Weinberger and Brian Kernighan.
+- *awk* is powerful at processing files, particularly column based files, which are commonplace in bioinformatics e.g. BED, GFF and SAM files.
+- Although complex programs can be written in *awk*, we will use it directly on the command line.
 - Before we begin we need to change directory to the correct location.
 
 ```bash
 $ cd ~/Module2_Linux_scripting/awk/
 
 ```
-- awk reads a file line by line, splitting each line into columns.
+- *awk* reads a file line by line, splitting each line into columns.
      - This makes it easy to extract a single column or multiple columns.
 - We will use a GFF file for all of our examples.
 
@@ -777,6 +778,7 @@ $ cd ~/Module2_Linux_scripting/awk/
 $ cat genes.gff
 
 ```
+
 - The columns in a GFF file are separated by tabs and having the following meanings
 1. Sequence name
 2. Source (the name of the program that made the feature)
@@ -797,7 +799,7 @@ $ awk -F”\t” ‘{print $1}’ genes.gff
 
 ```
 - A little explanation is required:
-     - The option -F”\t” is needed to tell awk that the columns are tab separated.
+     - The option *-F"\t"* is needed to tell *awk* that the columns are tab separated.
      - For each line of the file, awk simply does what is inside the curly brackets, in this case, simply print the first column.
 - Try to modify the command to list each chromosome once only. (Hint: you’ll need to pipe your output into a Unix command we saw earlier.)
 
@@ -805,8 +807,8 @@ $ awk -F”\t” ‘{print $1}’ genes.gff
 
 
 ### Filtering input files
-- Like grep, awk can be used to filter lines from a file.
-- However, as awk is column based, it makes it easier to filter on the properties of the column of interest.
+- Like *grep*, *awk* can be used to filter lines from a file.
+- However, as *awk* is column based, it makes it easier to filter on the properties of the column of interest.
 
 ```bash
 # The filtering criteria can be added before the braces. For example, this will extract just chromosome 1 data from the file.
@@ -815,14 +817,14 @@ $ awk -F"\t" '$1=="chr1" { print $0 }' genes.gff
 ```
 
 - There are two important things to note here:
-     - $1==”chr1” means that column 1 must exactly match “chr1”.
-     - The “(print $0}” part only happens when the first column is equal to “chr1”
+     - *$1=="chr1"* means that column 1 must exactly match “chr1”.
+     - The *"(print $0}"* part only happens when the first column is equal to “chr1”
 - In general, awk commands a made up of two parts:
-     - a pattern (e.g. $1==”chr1”)
-     - an action (e.g. “print $0”)
+     - a pattern (e.g. $1=="chr1")
+     - an action (e.g. "print $0")
           - The pattern defines which line the action is applied to.
 - Actually, in this example, the action could be omitted as awk assumes you want to print the whole line unless told otherwise.
-- Similarly, if the pattern is omitted, awk assumes that the action should be applied to every line, as in the first awk command we used.
+- Similarly, if the pattern is omitted, *awk* assumes that the action should be applied to every line, as in the first awk command we used.
 
 ```bash
 # In this example we will search for just the genes from chromosome 1.
@@ -843,14 +845,14 @@ $ awk -F"\t" '$1=="chr1" || $3=="repeat"' genes.gff
 $ awk -F"\t" '$1=="chr1" && $3=="gene" && $4 < 1100' genes.gff
 
 ```
-- If we do not specify a column, awk will match the entire line as it assumes it is searching $0.
+- If we do not specify a column, *awk* will match the entire line as it assumes it is searching $0.
 
 ```bash
 # Note that -F"\t" can be omitted here. As we're searching the whole line, the column delimiter is not relevant.
 $ awk '/repeat/' genes.gff
 
 ```
-- Similarly to grep, via its -v option, awk can invert its match. In this case, we use the !~ operator to represent “does not match”.
+- Similarly to *grep*, via its -v option, *awk* can invert its match. In this case, we use the *"!~"* operator to represent “does not match”.
 
 ```bash
 # Here we simply look for the inverse of the previous search.
@@ -863,7 +865,7 @@ $ awk ‘!/repeat/’ genes.gff
 
 ### Sanity checking files
 - **Never ever trust** the content of a bioinformatics file, even if you generated it.
-- With the awk we have learnt so far, we can do some basic sanity checks on a GFF file
+- With the *awk* we have learnt so far, we can do some basic sanity checks on a GFF file
 
 ```bash
 # One thing we may want to do is check that each gene has been assigned a strand. To do this, we need to check whether column 7 contains either a + or - symbol.
@@ -899,7 +901,7 @@ $ awk -F"\t" '{$2="new_source"; print $0}' genes.gff
 
 ```
 - This is close to what is required but, if you look closely at the output, you will notice that it is no longer tab separated.
-- To fix this, we need to use another special variable called "OFS" (output field separator).
+- To fix this, we need to use another special variable called *"OFS"* (output field separator).
 
 ```bash
 # This is achieved by adding "BEGIN{OFS="\t"}" to the code, as below. Before awk reads any lines of the file, it reads the BEGIN block of code, in this case, changing OFS to a tab character.
@@ -934,7 +936,7 @@ $ awk -F"\t" ''BEGIN{OFS="\t"} {$2="new_source"; print $0}' genes.gff
 - It is common in bioinformatics to run the same analysis on many files.
 - Suppose we have a script which runs an analysis we wish to run on 100 data files.
 - It is both tedious and error type the same command 100 times so instead we use a loop.
-- There are several types of loop used by Unix but we will concentrate on two, the for loop and the while loop.
+- There are several types of loop used by Unix but we will concentrate on two, the *"for loop"* and the *"while loop"*.
 
 ```bash
 # We will use a for loop to run wc on the files in the directory loop_files/
@@ -954,12 +956,12 @@ $ while read -r chr start end name strand; do \
 		done < loop_files/file.1
 ```
 - let us break this while loop down:
-     - “while read -r chr start end name strand” defines the columns that will be passed as variables to the next part of the command.
+     - *“while read -r chr start end name strand”* defines the columns that will be passed as variables to the next part of the command.
           - We could call these anything we like, but it make sense to given the names that relate to the data
-     - “< loop_files/file.1” is the input file that will be read line-by-line, and is passed into the command using the "<".
-     - the while loop starts with the "do" and finishes with the "done"
-     - inside the while loop, there is the “if” command - if the conditions are TRUE, ie., the chr ==1 AND strand ==1, then we “echo” or print the data in the columns chr, start, end, name & strand. These were set as variables at the start of the while command
-     - The "if" command starts with "then", and finishes with "fi".
+     - *“< loop_files/file.1”* is the input file that will be read line-by-line, and is passed into the command using the *"<"*.
+     - the while loop starts with the *"do"* and finishes with the *"done"*.
+     - inside the while loop, there is the *“if”* command - if the conditions are TRUE, ie., the chr ==1 AND strand ==1, then we *“echo”* or print the data in the columns chr, start, end, name & strand. These were set as variables at the start of the while command
+     - The *"if"* command starts with *"then"*, and finishes with *"fi"*.
 
 ---
 [↥ **Back to top**](#top)
@@ -1003,12 +1005,13 @@ $ bash hello.sh
 
 ### Setting up a generic directory for scripts
 - It would be useful to be able to run scripts we’ve written from anywhere on the filesystem without telling Unix where the script is or that it is a BASH script.
-- To tell Unix that a script is a BASH script, edit it so the first line reads
+- To tell Unix that a script is a BASH script, edit it so the first line reads:
+
 ```bash
 #!/usr/bin/env bash
 
 ```
-- Next we need to make the script executable. To do this, we use the Unix command chmod
+- Next we need to make the script executable. To do this, we use the Unix command *"chmod"*
 
 ```bash
 # chmod changes the permissions of the file
@@ -1017,8 +1020,8 @@ $ chmod +x hello.sh
 ```
 - The final thing we need to do is change our setup so Unix can find our scripts without explicitly being told where they are.
 - When a command is typed, Unix searches a list of directories looking for it.
-- This list is stored as an environmental variable known as the PATH.
-- Some of the directories in the PATH are looked at for all users but others can be set explicitly for an individual user
+- This list is stored as an environmental variable known as the *PATH*.
+- Some of the directories in the PATH are looked at for all users but others can be set explicitly for an individual user.
 
 ```bash
 # First we want to check what our PATH currently is.
@@ -1258,9 +1261,9 @@ fi
 
 
 **7. Pro tips**   
-- Always have a quick look at files with less or head to double check their format.
+- Always have a quick look at files with *less* or *head* to double check their format.
 - Watch out for data in headers and make sure you don't accidentally include it in your output.
-- Watch out for spaces, especially if you're using awk - if in doubt, use -F"\t".
+- Watch out for spaces, especially if you're using *awk* - if in doubt, use *-F"\t"*.
 - Build regular expressions slowly, bit by bit.
 - If you did something smart but can't remember what it was, try typing history.
 - **man the_name_of_a_command** often gives you help.
