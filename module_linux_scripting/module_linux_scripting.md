@@ -18,17 +18,9 @@
 ## Overview and Aims <a name="overview"></a>
 
 ### Introducing Linux
-Unix is the standard operating system on most large computer systems in scientific
-research, in the same way that Microsoft Windows is the dominant operating system
-on desktop PCs.
+Unix is the standard operating system on most large computer systems in scientific research, in the same way that Microsoft Windows is the dominant operating system on desktop PCs.
 
-Unix and MS Windows both perform the important job of managing the computer's
-hardware (screen, keyboard, mouse, hard disks, network connections, etc...) on
-your behalf. They also provide you with tools to manage your files and to run
-application software. They both offer a graphical user interface (desktop). These
-desktop interfaces look different between the operating systems, use different
-names for things (e.g. directory versus folder) and have different images but
-they mostly offer the same functionality.
+Unix and MS Windows both perform the important job of managing the computer's hardware (screen, keyboard, mouse, hard disks, network connections, etc...) on your behalf. They also provide you with tools to manage your files and to run application software. They both offer a graphical user interface (desktop). These desktop interfaces look different between the operating systems, use different names for things (e.g. directory versus folder) and have different images but they mostly offer the same functionality.
 
 Unix is a powerful, secure, robust and stable operating system which allows dozens
 of people to run programs on the same computer at the same time. This is why it
@@ -37,7 +29,7 @@ on all kinds of machines, from mobile phones (Android), desktop PCs... to superc
 
 
 ### Why Linux
-Increasingly, the output of biological research exists as in silico data, usually
+Increasingly, the output of biological research exists as *in silico* data, usually
 in the form of large text files. Unix is particularly suitable for working with
 such files and has several powerful and flexible commands that can be used to
 process and analyse this data. One advantage of learning Unix is that many of the
@@ -52,10 +44,11 @@ and provide examples of how they can be used in bioinformatics analyses.
 
 ### General points to consider
 - Linux is pretty straightforward, but there are some general points to remember that will make your life easier:
-     - Linux is case sensitive - typing "ls" is not the same as typing "LS".
-     - You need to put a space between a command and its argument - for example, "more myfile" will show you the contents of the file called myfile; "moremyfile" will just give you an error!
+     - Linux is case sensitive - typing *"ls"* is not the same as typing *"LS"*.
+     - You need to put a space between a command and its argument - for example, *"more myfile"* will show you the contents of the file called myfile; *"moremyfile"* will just give you an error!
      - Linux is not psychic! If you misspell the name of a command or the name of a file, it will not understand you.
-     - Many of the commands are only a few letters long; this can be confusing until you start to think logically about why those letters were chosen - ls for list, rm for remove and so on.
+     - Many of the commands are only a few letters long; this can be confusing until you start to think logically about why those letters were chosen
+          - ls for list, rm for remove and so on.
      - Often when you have problems with Linux, it is due to a spelling mistake, or perhaps you have omitted a space.
 - If you want to know more about Linux and its commands there are plenty of resources available that provide a more comprehensive guide, for example:
      - http://Linuxhelp.com
@@ -87,15 +80,21 @@ and provide examples of how they can be used in bioinformatics analyses.
 | kill | stop a process |
 | jobs | list the processes that are running |
 
+
+
+
 ### Tips to get you started
-- read the text! They contain lots of hints that should help you to answer some of the questions
+- read the text! It contain lots of hints that should help you to answer some of the questions
 - grey boxes contain instructions for running commands
      - lines that start with a hash, ie "#" are a comment line - do not type these out.
-     - lines that start with the following symbols should be typed out
+     - lines that start with the following symbols should be typed out. Different programming languages have different symbols,
           - '\$' : this is a shell prompt
-          - '\>' :  this is a R prompt
+               - everything performed in this module is using the shell prompt
+          - '\>' : this is a R prompt
+               - this may appear in other modules
                - note that you also see this on the shell prompt if you have not completed a command correctly   
-          - '\>\>\>' : this is the python prompt
+          - '\>\>\>' : this is the python prompt  
+               - you are not going to be using python here, but may choose to learn it in your own time as it is a very versatile programming language commonly used in bioinformatics
 
 ---
 [↥ **Back to top**](#top)
@@ -117,7 +116,7 @@ and provide examples of how they can be used in bioinformatics analyses.
      - The '$' character is the Linux prompt, similar to "C:\" in DOS. Note: the prompt will often be different on different Linux computers, for example it may be displayed as a ‘%’ character.
 
 - All Linux programs may be run by typing commands at the Linux prompt $. The command line tells the computer what to do.
-     - You can type commands directly into the terminal at the ‘$' prompt.
+     - You can type commands directly into the terminal at the '$' prompt.
 
 ![](figures/02_linux_prompt.png)
 
@@ -136,7 +135,7 @@ cd /home/manager/Module2_Linux_Scripting
 
 ### Command line arguments
 - You may subtly alter these commands by specifying certain options when typing in the command line.
-- Typing any Linux command for example ls, mv or cd at the Linux prompt with the appropriate variables such as files names or directories will result in the tasks being performed on pressing the enter key.
+- Typing any Linux command for example *ls*, *mv* or *cd* at the Linux prompt with the appropriate variables such as files names or directories will result in the tasks being performed on pressing the enter key.
 - The ‘command’ is separated from the options and arguments by a space.  
 - Additional options and/or arguments can be added to the commands to affect the way the command works.
 - Options usually have one dash and a letter (e.g. -h) or two dashes and a word (--help) with no space between the dash and the letter/word.
